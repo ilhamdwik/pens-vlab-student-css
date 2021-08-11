@@ -2,10 +2,7 @@ import { createAction, createAsyncAction } from "typesafe-actions";
 import { User } from "../reducers/authReducer";
 
 export const setUser = createAction("SET_USER", (user?: User) => user)();
-export const setToken = createAction(
-  "SET_TOKEN",
-  (token: string | null) => token
-)();
+export const setToken = createAction("SET_TOKEN", (token?: string) => token)();
 
 export const fetchUserCheck = createAsyncAction(
   "USER_CHECK_REQUEST",

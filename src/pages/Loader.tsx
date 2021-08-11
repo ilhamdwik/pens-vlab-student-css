@@ -64,7 +64,7 @@ export const Loader = () => {
               axios.defaults.headers.common[
                 "Authorization"
               ] = `Bearer ${token}`;
-              history.replace("/vlab");
+              history.replace("/vlab/home");
             },
           })
         );
