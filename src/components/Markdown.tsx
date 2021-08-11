@@ -53,21 +53,20 @@ export const Markdown = ({ markdown }: { markdown: string }) => {
                   <i className="fas fa-arrow-right ml-4 mt-1" />
                 </button>
               </div>
-            ) : inline?(
+            ) : inline ? (
               <code {...props}>{children}</code>
-            ):(
+            ) : (
               <SyntaxHighlighter
-                  style={dark ? atomOneDark : atomOneLight}
-                  language={"php"}
-                  children={String(children).replace(/\n$/, "")}
-                  customStyle={{
-                    margin: 0,
-                    backgroundColor: dark ? "#0F172A" : "#F1F5F9",
-                  }}
-                  showLineNumbers
-                  {...props}
-                />
-
+                style={dark ? atomOneDark : atomOneLight}
+                language={"php"}
+                children={String(children).replace(/\n$/, "")}
+                customStyle={{
+                  margin: 0,
+                  backgroundColor: dark ? "#0F172A" : "#F1F5F9",
+                }}
+                showLineNumbers
+                {...props}
+              />
             );
           },
           pre: (props) => {

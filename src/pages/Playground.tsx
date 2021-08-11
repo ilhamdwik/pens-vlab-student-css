@@ -33,9 +33,12 @@ export const Playground = () => {
   React.useEffect(() => {
     if (playgroundCode) {
       setCode(playgroundCode);
-      dispatch(setPlaygroundCode(null));
     }
   }, [playgroundCode]);
+
+  React.useEffect(() => {
+    dispatch(setPlaygroundCode(null));
+  }, [code]);
 
   const onCompile = () => {
     setLoading(true);

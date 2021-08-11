@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
-import { Provider as ReduxProvider, useSelector } from "react-redux";
-import { RootState, store } from "./redux/store";
+import { Provider as ReduxProvider } from "react-redux";
+import { store } from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -81,8 +81,13 @@ export const App = () => {
         </Layout>
       ) : (
         <Switch>
-          {/* only use in DEV */}
-          <Route path="/vlab/___dummy-login___" exact component={DummyLogin} />
+          {process.env.REACT_APP_ENV === "DEV" ? (
+            <Route
+              path="/vlab/___dummy-login___"
+              exact
+              component={DummyLogin}
+            />
+          ) : null}
 
           <Route path="/vlab/load" exact component={Loader} />
           <Route
