@@ -89,6 +89,7 @@ export const Modal = ({
                     {buttons.map((v) => (
                       <button
                         type="button"
+                        key={v.text}
                         className={`inline-flex mr-2 justify-center px-4 py-2 text-sm font-medium ${
                           v.color ? v.color : "text-blue-900"
                         } ${

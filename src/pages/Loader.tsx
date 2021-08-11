@@ -5,15 +5,17 @@ import { motion, useAnimation } from "framer-motion";
 import { ControlsAnimationDefinition } from "framer-motion/types/animation/types";
 import { Modal } from "../components/Modal";
 import axios from "axios";
-import { fetchUserCheck } from "../redux/actions/authActions";
-import { useDispatch } from "react-redux";
+import { fetchUserCheck, setToken } from "../redux/actions/authActions";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { RootState } from "../redux/store";
 
 export const Loader = () => {
   const dispatch = useDispatch();
+  const token = useSelector((state: RootState) => state.auth.token);
   const history = useHistory();
   const controls = useAnimation();
-  const [cookies, setCookie, removeCookie] = useCookies(["vlabToken"]);
+  const [cookies] = useCookies(["user"]);
   const [showModal, setShowModal] = React.useState(false);
 
   const initialAnimation: ControlsAnimationDefinition = (i) => ({
@@ -35,27 +37,14 @@ export const Loader = () => {
 
   React.useEffect(() => {
     controls.start(initialAnimation);
-    if (cookies.vlabToken) {
-      axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${cookies.vlabToken}`;
+    if (token) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       history.replace("/vlab");
     }
   }, []);
 
-  // React.useEffect(() => {
-  //   if (cookies.vlab_token) {
-  //   } else {
-  //     if (cookies.user) {
-  //     } else {
-  //       setShowModal(true);
-  //       // document.href = "https://ethol.pens.ac.id"
-  //     }
-  //   }
-  // }, [cookies.vlab_token]);
-
   const checkAuth = () => {
-    if (!cookies.vlabToken) {
+    if (!token) {
       if (cookies.user && localStorage.getItem("userCas")) {
         dispatch(
           fetchUserCheck.request({
@@ -71,13 +60,7 @@ export const Loader = () => {
               setShowModal(true);
             },
             onSuccess: (token: string) => {
-              setCookie("vlabToken", token, {
-                domain:
-                  process.env.REACT_APP_ENV === "DEV"
-                    ? process.env.REACT_APP_DOMAIN
-                    : "ethol.pens.ac.id",
-                path: "/vlab",
-              });
+              dispatch(setToken(token));
               axios.defaults.headers.common[
                 "Authorization"
               ] = `Bearer ${token}`;
@@ -88,13 +71,7 @@ export const Loader = () => {
       } else {
         // if there is no "user" cookie from ETHOL
         setShowModal(true);
-        removeCookie("vlabToken", {
-          domain:
-            process.env.REACT_APP_ENV === "DEV"
-              ? process.env.REACT_APP_DOMAIN
-              : "ethol.pens.ac.id",
-          path: "/vlab",
-        });
+
         axios.defaults.headers.common["Authorization"] = undefined;
       }
     }

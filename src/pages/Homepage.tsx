@@ -57,6 +57,7 @@ export const Homepage = () => {
             return (
               <Link
                 to={`/vlab/courses/${v.id}`}
+                key={v.id}
                 className="flex flex-col justify-between p-4 shadow-xl rounded-lg bg-white border-t-4 border-blue-400 dark:border-blue-600 hover:shadow-2xl hover:scale-105 transform transition focus:outline-none text-left dark:bg-blueGray-900"
               >
                 <div>

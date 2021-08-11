@@ -66,7 +66,7 @@ export const Courses = () => {
             });
           });
           return (
-            <Disclosure>
+            <Disclosure key={v.id}>
               {({ open }) => (
                 <>
                   <Disclosure.Button className="flex lg:grid lg:grid-cols-12 lg:grid-rows-1 items-center w-full p-6 text-sm font-medium text-left text-blue-900 bg-blue-100 dark:text-blueGray-100 dark:bg-blueGray-900 rounded hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
@@ -139,6 +139,7 @@ export const Courses = () => {
                             if (_v.submodules.length > 0) {
                               return (
                                 <Link
+                                  key={_v.id}
                                   to={`/vlab/lesson/${_v.submodules[0]?.id}`}
                                   className=" inline-flex items-center p-4 rounded bg-white dark:bg-blueGray-800 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none justify-between"
                                 >

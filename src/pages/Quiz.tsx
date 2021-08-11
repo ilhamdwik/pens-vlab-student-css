@@ -64,7 +64,7 @@ export const Quiz = () => {
 
         {quizList?.map((v) => {
           return (
-            <>
+            <div>
               <Disclosure>
                 {({ open }) => (
                   <>
@@ -149,7 +149,7 @@ export const Quiz = () => {
                 )}
               </Disclosure>
               <div className="h-8" />
-            </>
+            </div>
           );
         })}
       </div>

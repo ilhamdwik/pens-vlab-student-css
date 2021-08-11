@@ -173,17 +173,22 @@ export const CourseMenu = () => {
                             <div className="font-medium text-lg">Modules</div>
                             <div className="grid grid-flow-col grid-cols-2 grid-rows-3 gap-4 mt-2">
                               {courseDetail?.modules.map((v) => {
-                                return (
-                                  <Link
-                                    to={`/vlab/lesson/${v.submodules[0]?.id}`}
-                                    className=" inline-flex items-center p-4 rounded bg-white dark:bg-blueGray-900 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none justify-between"
-                                  >
-                                    <Popover.Button className="inline-flex justify-between items-center flex-1 focus:outline-none">
-                                      <span>{v.title}</span>
-                                      <i className="fas fa-arrow-right" />
-                                    </Popover.Button>
-                                  </Link>
-                                );
+                                if (v.submodules[0]?.id) {
+                                  return (
+                                    <Link
+                                      to={`/vlab/lesson/${v.submodules[0]?.id}`}
+                                      key={v.id}
+                                      className=" inline-flex items-center p-4 rounded bg-white dark:bg-blueGray-900 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none justify-between"
+                                    >
+                                      <Popover.Button className="inline-flex justify-between items-center flex-1 focus:outline-none">
+                                        <span>{v.title}</span>
+                                        <i className="fas fa-arrow-right" />
+                                      </Popover.Button>
+                                    </Link>
+                                  );
+                                } else {
+                                  return null;
+                                }
                               })}
                             </div>
                             <Link

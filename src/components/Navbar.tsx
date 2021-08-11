@@ -5,13 +5,14 @@ import React, { Fragment } from "react";
 import { ReactComponent as LogoText } from "../assets/images/logo-text.svg";
 import { formatName } from "../utils/formatter";
 import { RootState } from "../redux/store";
-import { connect, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../redux/actions/appActions";
 import { PayloadAction } from "typesafe-actions";
 import { CourseMenu } from "./CourseMenu";
 import { useCookies } from "react-cookie";
 import { SwipeableDrawer } from "@material-ui/core";
 import { Button } from "./Button";
+import { setToken, setUser } from "../redux/actions/authActions";
 
 export const Navbar = ({
   dark,
@@ -20,25 +21,14 @@ export const Navbar = ({
   dark?: boolean;
   toggleDarkMode: (dark: boolean) => PayloadAction<"TOGGLE_DARK_MODE", boolean>;
 }) => {
+  const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.auth.user);
   const [, , removeCookie] = useCookies(["vlabToken", "user"]);
   const [openSidebar, setOpenSidebar] = React.useState(false);
 
   const onLogout = () => {
-    removeCookie("user", {
-      domain:
-        process.env.REACT_APP_ENV === "DEV"
-          ? process.env.REACT_APP_DOMAIN
-          : "ethol.pens.ac.id",
-      path: "/",
-    });
-    removeCookie("vlabToken", {
-      domain:
-        process.env.REACT_APP_ENV === "DEV"
-          ? process.env.REACT_APP_DOMAIN
-          : "ethol.pens.ac.id",
-      path: "/vlab",
-    });
+    dispatch(setToken(null));
+    dispatch(setUser());
     localStorage.removeItem("userCas");
     document.location.href = "https://ethol.pens.ac.id";
   };
@@ -184,7 +174,10 @@ export const Navbar = ({
               <>
                 <Popover.Button className="cursor-pointer flex space-x-4 items-center focus:outline-none ml-4">
                   <img
-                    src="https://ethol.pens.ac.id/api/images/user.png"
+                    src={`https://avatars.dicebear.com/api/initials/${user?.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}.svg?backgroundColors[]=blue`}
                     alt="avatar"
                     className="w-10 h-10 rounded-full"
                   />
