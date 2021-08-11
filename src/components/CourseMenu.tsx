@@ -135,14 +135,14 @@ export const CourseMenu = () => {
                           )}
                         </div>
                       )}
-                      <Link to="/vlab/courses" onClick={() => {}}>
-                        <Popover.Button
+                      <Popover.Button as={Link} to="/vlab/courses">
+                        <div
                           className={`w-full p-4 relative text-blue-600 dark:text-blue-400 cursor-pointer hover:bg-blue-100 dark:hover:bg-blueGray-600 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 `}
                         >
                           View all courses
                           <i className="fas fa-arrow-right text-xs ml-4" />
-                        </Popover.Button>
-                      </Link>
+                        </div>
+                      </Popover.Button>
                     </div>
                     <div className="bg-blueGray-100 dark:bg-blueGray-800 flex-1 p-6 pb-10 flex flex-col space-y-6 overflow-y-scroll scrollbar-thin dark:text-blueGray-100">
                       {courseDetail ? (
@@ -157,14 +157,13 @@ export const CourseMenu = () => {
                               {courseDetail?.name}
                             </div>
                             <div className="flex-1" />
-                            <Link
+                            <Popover.Button
+                              as={Link}
                               to={`/vlab/courses/${courseDetail?.id}`}
-                              onClick={() => {}}
+                              className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none "
                             >
-                              <Popover.Button className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none ">
-                                Get Started
-                              </Popover.Button>
-                            </Link>
+                              Get Started
+                            </Popover.Button>
                           </div>
                           <div className="text-blueGray-600 dark:text-blueGray-200">
                             {courseDetail?.description}
@@ -172,34 +171,32 @@ export const CourseMenu = () => {
                           <div className="pb-10">
                             <div className="font-medium text-lg">Modules</div>
                             <div className="grid grid-flow-col grid-cols-2 grid-rows-3 gap-4 mt-2">
-                              {courseDetail?.modules.map((v) => {
-                                if (v.submodules[0]?.id) {
+                              {courseDetail?.modules
+                                .filter((v) => v.submodules[0]?.id)
+                                .map((v) => {
                                   return (
-                                    <Link
+                                    <Popover.Button
+                                      as={Link}
                                       to={`/vlab/lesson/${v.submodules[0]?.id}`}
                                       key={v.id}
                                       className=" inline-flex items-center p-4 rounded bg-white dark:bg-blueGray-900 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none justify-between"
                                     >
-                                      <Popover.Button className="inline-flex justify-between items-center flex-1 focus:outline-none">
+                                      <div className="inline-flex justify-between items-center flex-1 focus:outline-none">
                                         <span>{v.title}</span>
                                         <i className="fas fa-arrow-right" />
-                                      </Popover.Button>
-                                    </Link>
+                                      </div>
+                                    </Popover.Button>
                                   );
-                                } else {
-                                  return null;
-                                }
-                              })}
+                                })}
                             </div>
-                            <Link
+                            <Popover.Button
+                              as={Link}
                               to={`/vlab/courses/${courseDetail?.id}`}
-                              onClick={() => {}}
+                              className="mt-4 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
                             >
-                              <Popover.Button className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer">
-                                View all Modules
-                                <i className="fas fa-arrow-right text-xs ml-4" />
-                              </Popover.Button>
-                            </Link>
+                              View all Modules
+                              <i className="fas fa-arrow-right text-xs ml-4" />
+                            </Popover.Button>
                           </div>
                         </>
                       ) : (
