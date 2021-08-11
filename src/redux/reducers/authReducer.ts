@@ -14,7 +14,7 @@ export type User = {
 
 export interface AuthState {
   user?: User;
-  token?: string | null;
+  token?: string;
 }
 
 const initialState: AuthState = {};

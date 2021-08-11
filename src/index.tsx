@@ -24,7 +24,7 @@ import { QuizDetail } from "./pages/QuizDetail";
 import { CourseDetail } from "./pages/CourseDetail";
 import axios from "axios";
 import DummyLogin from "./pages/DummyLogin";
-import { AuthState } from "./redux/reducers/authReducer";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const contextClass = {
   success: "bg-blue-600",
@@ -49,10 +49,7 @@ declare global {
 }
 
 export const App = () => {
-  const token = JSON.parse(
-    (JSON.parse(localStorage.getItem("persist:auth") ?? "") as AuthState)
-      .token ?? ""
-  );
+  const token = useSelector((state: RootState) => state.auth.token);
 
   if (token) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -60,39 +57,52 @@ export const App = () => {
 
   return (
     <BrowserRouter>
-      {token ? (
-        <Layout>
-          <Switch>
-            <Route path="/vlab" exact component={Homepage} />
-            <Route path="/vlab/playground" exact component={Playground} />
-            <Route path="/vlab/quiz" exact component={Quiz} />
-            <Route path="/vlab/quiz/:id" exact component={QuizDetail} />
-            <Route path="/vlab/courses" exact component={Courses} />
-            <Route path="/vlab/courses/:id" exact component={CourseDetail} />
-            <Route path="/vlab/lesson/:id" exact component={Lesson} />
-
-            <Route
-              path="*"
-              component={() => {
-                return <Redirect to="/vlab" />;
-              }}
-            />
-          </Switch>
-        </Layout>
-      ) : (
-        <Switch>
-          {/* only use in DEV */}
-          <Route path="/vlab/___dummy-login___" exact component={DummyLogin} />
-
-          <Route path="/vlab/load" exact component={Loader} />
+      <Switch>
+        {process.env.REACT_APP_ENV === "DEV" ? (
           <Route
-            path="*"
-            component={() => {
-              return <Redirect to="/vlab/load" />;
-            }}
+            path="/vlab/___dummy-login___"
+            exact
+            render={() => <DummyLogin />}
           />
-        </Switch>
-      )}
+        ) : null}
+
+        <Route path="/vlab/load" exact render={() => <Loader />} />
+
+        <ProtectedRoute
+          path="/vlab/"
+          component={() => (
+            <Layout>
+              <Switch>
+                <Route path="/vlab/home" exact component={Homepage} />
+                <Route path="/vlab/playground" exact component={Playground} />
+                <Route path="/vlab/quiz" exact component={Quiz} />
+                <Route path="/vlab/quiz/:id" exact component={QuizDetail} />
+                <Route path="/vlab/courses" exact component={Courses} />
+                <Route
+                  path="/vlab/courses/:id"
+                  exact
+                  component={CourseDetail}
+                />
+                <Route path="/vlab/lesson/:id" exact component={Lesson} />
+
+                <Route
+                  path="*"
+                  component={() => {
+                    return <Redirect to="/vlab/home" />;
+                  }}
+                />
+              </Switch>
+            </Layout>
+          )}
+        />
+
+        <Route
+          path="*"
+          render={() => {
+            return <Redirect to="/vlab/load" />;
+          }}
+        />
+      </Switch>
 
       <ToastContainer
         transition={Slide}

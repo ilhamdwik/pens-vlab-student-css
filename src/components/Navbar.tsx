@@ -27,7 +27,7 @@ export const Navbar = ({
   const [openSidebar, setOpenSidebar] = React.useState(false);
 
   const onLogout = () => {
-    dispatch(setToken(null));
+    dispatch(setToken());
     dispatch(setUser());
     localStorage.removeItem("userCas");
     document.location.href = "https://ethol.pens.ac.id";
