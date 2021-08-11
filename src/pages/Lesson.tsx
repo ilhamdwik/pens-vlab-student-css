@@ -103,6 +103,7 @@ export const Lesson = () => {
         onSuccess: () => {
           nProgress.done();
           if (lesson) {
+            window.scrollTo(0, 0);
             if (activeIndex + 1 === lesson?.modules?.submodules?.length) {
               toast.success("Module finished!");
             }
