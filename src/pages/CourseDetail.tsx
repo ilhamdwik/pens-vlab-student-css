@@ -137,14 +137,14 @@ export const CourseDetail = () => {
                       />
                       <div>
                         <div className="font-normal text-sm">
-                          {v.is_exercise ? "Exercise" : "Lesson"}
+                          {v.is_exercise ? "Latihan" : "Teori"}
                         </div>
                         <div className="font-bold">{v.title}</div>
                       </div>
                     </div>
                     {v.user_progress[0]?.is_done ? (
                       <span className="px-4 py-1 inline-flex font-semibold rounded-full bg-blue-100 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
-                        Completed
+                        Selesai
                       </span>
                     ) : null}
                   </div>

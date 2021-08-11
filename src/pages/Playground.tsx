@@ -68,7 +68,7 @@ export const Playground = () => {
       >
         <div className="container mx-auto flex items-center px-16 py-4 justify-between">
           <div className="font-black uppercase text-xs tracking-wider text-blue-600 dark:text-blue-400">
-            Code Playground
+            Playground Kode
           </div>
           <div className="flex space-x-6">
             <button
@@ -85,7 +85,7 @@ export const Playground = () => {
                 loading ? "bg-blueGray-400" : "bg-blue-600 hover:bg-blue-700"
               }`}
             >
-              Run Code
+              Jalankan Kode
               <i className="fas fa-code ml-4 mt-1" />
             </button>
           </div>
@@ -117,7 +117,7 @@ export const Playground = () => {
           </div>
           <div className="flex-1 border-l dark:border-blueGray-600">
             <div className="font-black uppercase text-xs tracking-wider text-lightBlue-900 dark:text-blueGray-100 p-4 border-b dark:border-blueGray-600">
-              Output
+              Output Kode
             </div>
             {!loading ? (
               <article className="p-4 prose dark:prose-light max-w-none overflow-y-scroll scrollbar scrollbar-thin">
@@ -138,7 +138,7 @@ export const Playground = () => {
       <div className="flex flex-col overflow-hidden lg:hidden">
         <div className="container mx-auto flex flex-col px-6 lg:px-16 py-6 justify-between">
           <div className="font-black uppercase text-xs tracking-wider text-blue-600 dark:text-blue-400">
-            Code Playground
+            Playground Kode
           </div>
           <div className="flex space-x-6 mt-2">
             <button
@@ -155,14 +155,14 @@ export const Playground = () => {
                 loading ? "bg-blueGray-400" : "bg-blue-600 hover:bg-blue-700"
               }`}
             >
-              Run Code
+              Jalankan Kode
               <i className="fas fa-code ml-4 mt-1" />
             </button>
           </div>
         </div>
         <div className="flex-1 border-b border-t dark:border-blueGray-600">
           <div className="font-black uppercase text-xs tracking-wider text-lightBlue-900 dark:text-blueGray-100 p-4 border-b dark:border-blueGray-600">
-            Output
+            Output Kode
           </div>
           {!loading ? (
             <article className="p-4 prose dark:prose-light max-w-none overflow-y-scroll scrollbar scrollbar-thin">

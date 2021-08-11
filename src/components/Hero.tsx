@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export const Hero = () => {
   const [index, setIndex] = React.useState(0);
-  const texts = [" Learn", " Discover", " Experiment"];
+  const texts = [" Belajar", " Menemukan Hal Baru", " Bereksperimen"];
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -33,7 +33,7 @@ export const Hero = () => {
             />
           </div>
           <div className="text-2xl lg:text-4xl text-white font-bold">
-            Platform to&nbsp;
+            Platform untuk&nbsp;
             <AnimatePresence>
               <motion.span
                 style={{ position: "absolute" }}
@@ -70,14 +70,14 @@ export const Hero = () => {
             </AnimatePresence>
           </div>
           <div className="text-md lg:text-lg text-white mt-4">
-            {`Find the best learning experience and improve your abilities in
-              programming.\nLearn fundamentals of programming languages using our courses.
-              Experiment with codes using our code playground.`}
+            {`Temukan pengalaman belajar terbaik dan tingkatkan kemampuanmu pada pemrograman.
+            \nBelajar fundamental dari bahasa pemrograman menggunakan course yang tersedia. 
+            Bereksperimen dengan kode menggunakan Playground.`}
           </div>
 
           <Link to="/vlab/courses">
             <button className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none mt-8">
-              Start Learning
+              Mulai Belajar
               <i className="fas fa-arrow-right ml-4 mt-1" />
             </button>
           </Link>

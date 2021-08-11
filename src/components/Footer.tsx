@@ -18,7 +18,7 @@ export const Footer = () => {
             Link
           </div>
           <a target="_blank" rel="noreferrer" href="https://www.pens.ac.id">
-            PENS Website
+            Website PENS
           </a>
           <a
             target="_blank"
@@ -31,7 +31,7 @@ export const Footer = () => {
         </div>
         <div className="flex-1 text-lightBlue-50">
           <div className="font-black uppercase text-xs tracking-wider text-blueGray-200 dark:text-blue-400 mb-4">
-            Contact
+            Kontak
           </div>
           <div>Jl. Raya ITS - Kampus PENS Sukolilo Surabaya, Indonesia</div>
           <div>+62 31 594 7280</div>

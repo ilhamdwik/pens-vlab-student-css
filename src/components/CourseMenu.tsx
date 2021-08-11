@@ -65,7 +65,7 @@ export const CourseMenu = () => {
         return (
           <>
             <Popover.Button className="h-full flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none align-middle">
-              <span className="font-medium">Courses</span>
+              <span className="font-medium">Course</span>
               <i
                 className={`fas fa-chevron-down text-xs transition duration-200 transform ${
                   open ? "rotate-180" : ""
@@ -139,7 +139,7 @@ export const CourseMenu = () => {
                         <div
                           className={`w-full p-4 relative text-blue-600 dark:text-blue-400 cursor-pointer hover:bg-blue-100 dark:hover:bg-blueGray-600 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 `}
                         >
-                          View all courses
+                          Lihat semua Course
                           <i className="fas fa-arrow-right text-xs ml-4" />
                         </div>
                       </Popover.Button>
@@ -162,14 +162,14 @@ export const CourseMenu = () => {
                               to={`/vlab/courses/${courseDetail?.id}`}
                               className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none "
                             >
-                              Get Started
+                              Mulai
                             </Popover.Button>
                           </div>
                           <div className="text-blueGray-600 dark:text-blueGray-200">
                             {courseDetail?.description}
                           </div>
                           <div className="pb-10">
-                            <div className="font-medium text-lg">Modules</div>
+                            <div className="font-medium text-lg">Modul</div>
                             <div className="grid grid-flow-col grid-cols-2 grid-rows-3 gap-4 mt-2">
                               {courseDetail?.modules
                                 .filter((v) => v.submodules[0]?.id)
@@ -194,7 +194,7 @@ export const CourseMenu = () => {
                               to={`/vlab/courses/${courseDetail?.id}`}
                               className="mt-4 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
                             >
-                              View all Modules
+                              Lihat semua Modul
                               <i className="fas fa-arrow-right text-xs ml-4" />
                             </Popover.Button>
                           </div>

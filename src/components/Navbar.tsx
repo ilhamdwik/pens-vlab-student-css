@@ -72,7 +72,7 @@ export const Navbar = ({
               }}
               className="w-full "
             >
-              Back to ETHOL
+              Kembali ke ETHOL
             </Button>
             <Button
               onClick={() => {
@@ -92,7 +92,7 @@ export const Navbar = ({
                 setOpenSidebar(false);
               }}
             >
-              Home
+              Beranda
             </Link>
             <Link
               to="/vlab/courses"
@@ -101,7 +101,7 @@ export const Navbar = ({
                 setOpenSidebar(false);
               }}
             >
-              Courses
+              Course
             </Link>
             <Link
               to="/vlab/quiz"
@@ -110,7 +110,7 @@ export const Navbar = ({
                 setOpenSidebar(false);
               }}
             >
-              Quiz
+              Kuis
             </Link>
             <Link
               to="/vlab/playground"
@@ -153,14 +153,14 @@ export const Navbar = ({
             to="/vlab"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
-            <span>Home</span>
+            <span>Beranda</span>
           </Link>
           <CourseMenu />
           <Link
             to="/vlab/quiz"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
-            <span>Quiz</span>
+            <span>Kuis</span>
           </Link>
 
           <Link
@@ -229,14 +229,14 @@ export const Navbar = ({
                       >
                         <a href="https://ethol.pens.ac.id">
                           <div className="p-4 pr-16 relative cursor-pointer hover:bg-blue-100 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 ">
-                            Back to ETHOL
+                            Kembali ke ETHOL
                           </div>
                         </a>
                         <div
                           onClick={onLogout}
                           className="p-4 pr-16 relative cursor-pointer hover:bg-blue-100 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 "
                         >
-                          Log Out
+                          Keluar
                         </div>
                       </div>
                     </>

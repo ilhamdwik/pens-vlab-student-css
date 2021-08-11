@@ -35,10 +35,10 @@ export const Courses = () => {
         <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900 ">
           <div className="flex-1 text-center">
             <div className="font-black uppercase text-xs lg:text-base tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
-              Courses
+              Course
             </div>
             <div className="text-lg lg:text-3xl text-blueGray-600 dark:text-white font-bold">
-              Available Programming Language Courses
+              Course yang Tersedia
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ export const Courses = () => {
                         {v.description}
                       </div>
                       <div className="flex-1">
-                        <div className="font-medium text-base">Modules</div>
+                        <div className="font-medium text-base">Modul</div>
                         <div className="flex flex-col space-y-4 mt-4">
                           {v.modules.map((_v) => {
                             if (_v.submodules.length > 0) {
@@ -157,7 +157,7 @@ export const Courses = () => {
                           to={`/vlab/courses/${v.id}`}
                           className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
                         >
-                          View all Modules
+                          Lihat semua Modul
                           <i className="fas fa-arrow-right text-xs ml-4" />
                         </Link>
                       </div>

@@ -194,7 +194,7 @@ export const Lesson = () => {
                   />
                   <div className="flex-1">
                     <div className="font-normal text-sm">
-                      {v.is_exercise ? "Exercise" : "Lesson"}
+                      {v.is_exercise ? "Latihan" : "Teori"}
                     </div>
                     <div>{v.title}</div>
                   </div>
@@ -215,18 +215,18 @@ export const Lesson = () => {
           <div className="col-span-9">
             <article className="  prose dark:prose-light max-w-none">
               <div className="text-sm font-medium mb-1">
-                {lesson ? (lesson.is_exercise ? "Exercise" : "Lesson") : ""}
+                {lesson ? (lesson.is_exercise ? "Latihan" : "Teori") : ""}
               </div>
               <div className="text-3xl font-bold">{lesson?.title}</div>
               <div className="border-t dark:border-blueGray-600 my-6" />
               {lesson?.is_exercise ? (
                 <div>
                   <Markdown markdown={lesson?.contents ?? ""} />
-                  <h4>Expected Output</h4>
+                  <h4>Output yang Diharapkan</h4>
                   <pre>
                     <code>{lesson.submodule_exercises.expected_output}</code>
                   </pre>
-                  <h4>Code</h4>
+                  <h4>Kode</h4>
                   <div className="h-80 border dark:border-blueGray-600">
                     <Editor
                       defaultLanguage="php"
@@ -239,7 +239,7 @@ export const Lesson = () => {
                   {!compileLoading ? (
                     result ? (
                       <>
-                        <h4>Output</h4>
+                        <h4>Output Kode</h4>
                         <pre>
                           <code>
                             <Parse html={result} />
@@ -270,7 +270,7 @@ export const Lesson = () => {
                   className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
                 >
                   <i className="fas fa-arrow-left mr-4 mt-1" />
-                  Prev
+                  Kembali
                 </Link>
               ) : null}
               <div className="flex-1" />
@@ -279,7 +279,7 @@ export const Lesson = () => {
                   onClick={onCompile}
                   className="mr-4 inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-blue-600 bg-white hover:bg-blue-50 focus:outline-none ring-2"
                 >
-                  Run Code
+                  Jalankan Kode
                   <i className="fas fa-undo ml-4 mt-1" />
                 </button>
               ) : null}
@@ -289,8 +289,8 @@ export const Lesson = () => {
                   className="cursor-pointer inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
                 >
                   {activeIndex + 1 < lesson?.modules?.submodules?.length
-                    ? "Next"
-                    : "Finish"}
+                    ? "Lanjut"
+                    : "Selesai"}
                   <i className="fas fa-arrow-right ml-4 mt-1" />
                 </div>
               ) : null}

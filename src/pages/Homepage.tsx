@@ -37,17 +37,17 @@ export const Homepage = () => {
       <div className="container mx-auto flex flex-col lg:flex-row px-6 lg:px-16 space-y-16 lg:space-y-0 lg:space-x-16 py-16 lg:py-24 ">
         <div className="max-w-xs">
           <div className="font-black uppercase text-xs tracking-wider text-blue-600 dark:text-blue-400">
-            Programming Languages
+            Course
           </div>
           <div className="text-2xl text-blueGray-900 dark:text-blueGray-100 font-bold mt-4">
-            Start Learning Programming
+            Belajar dengan Course
           </div>
           <div className="mt-2 dark:text-blueGray-100">
-            Start learning programing languages with our available courses
+            Mulai belajar dengan menggunakan Course yang tersedia
           </div>
           <Link to="/vlab/courses">
             <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer">
-              View all Courses
+              Lihat semua Course
               <i className="fas fa-arrow-right text-xs ml-4" />
             </div>
           </Link>
@@ -72,11 +72,11 @@ export const Homepage = () => {
                     />
                   </div>
                   <div className="mt-4 dark:text-blueGray-100">
-                    {v.modules.length} Modules
+                    {v.modules.length} Modul
                   </div>
                 </div>
                 <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer self-end">
-                  Learn
+                  Pelajari
                   <i className="fas fa-arrow-right text-xs ml-4" />
                 </div>
               </Link>
@@ -105,19 +105,19 @@ export const Homepage = () => {
           </div>
           <div className="flex-1">
             <div className="font-black uppercase text-xs tracking-wider text-blue-600 dark:text-blue-400">
-              Code Playground
+              Playground
             </div>
             <div className="text-2xl text-blueGray-900 font-bold mt-4 dark:text-blueGray-100">
-              Experiment with Codes
+              Bereksperimen dengan kode
             </div>
             <div className="mt-2 dark:text-blueGray-100">
-              Start experimenting with codes using our in house code playground
+              Mulai bereksperimen dengan kode menggunakan Playground
             </div>
             <Link
               to="/vlab/playground"
               className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none mt-8"
             >
-              Open Playground
+              Buka Playground
               <i className="fas fa-arrow-right ml-4 mt-1" />
             </Link>
           </div>
