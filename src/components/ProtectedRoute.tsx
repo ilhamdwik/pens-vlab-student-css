@@ -8,7 +8,7 @@ export const ProtectedRoute = ({
 }: RouteProps) => {
   const token = (
     JSON.parse(localStorage.getItem("persist:auth") || "{}") as AuthState
-  ).token;
+  )?.token;
 
   return (
     <Route
@@ -21,7 +21,7 @@ export const ProtectedRoute = ({
           return (
             <Redirect
               to={{
-                pathname: "/vlab/load",
+                pathname: "/load",
               }}
             />
           );
