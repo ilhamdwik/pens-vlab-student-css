@@ -127,7 +127,7 @@ export const Lesson = () => {
       <Modal
         open={showErrorModal}
         title="Error"
-        content="Please complete previous lesson first"
+        content="Mohon selesaikan course sebelumnya terlebih dahulu"
         buttons={[{ text: "OK" }]}
         onClose={() => {
           history.replace(`/courses/${lesson?.modules.prog_languages.id}`);

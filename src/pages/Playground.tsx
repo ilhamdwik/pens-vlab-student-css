@@ -49,12 +49,12 @@ export const Playground = () => {
         onSuccess: (res) => {
           setLoading(false);
           setResHtml(res);
-          toast.success("Compile successful!", {});
+          toast.success("Compile berhasil!", {});
         },
         onFailure: (err) => {
           setLoading(false);
           setResHtml(err.message);
-          toast.error("Compile failed!", {});
+          toast.error("Compile gagal!", {});
         },
       })
     );

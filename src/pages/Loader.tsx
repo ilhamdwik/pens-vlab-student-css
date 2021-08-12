@@ -82,10 +82,10 @@ export const Loader = () => {
       <Modal
         open={showModal}
         title="Error"
-        content="Login failed, please make sure that you are already logged in to ETHOL"
+        content="Login gagal, pastikan anda sudah login ke ETHOL"
         buttons={[
           { text: "OK" },
-          { text: "Retry", onClick: () => setShowModal(false) },
+          { text: "Coba Lagi", onClick: () => setShowModal(false) },
         ]}
         onClose={() => {
           document.location.href = "https://ethol.pens.ac.id";
