@@ -39,7 +39,7 @@ export const Loader = () => {
     controls.start(initialAnimation);
     if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      history.replace("/vlab");
+      history.replace("");
     }
   }, []);
 
@@ -64,7 +64,7 @@ export const Loader = () => {
               axios.defaults.headers.common[
                 "Authorization"
               ] = `Bearer ${token}`;
-              history.replace("/vlab/home");
+              history.replace("/home");
             },
           })
         );

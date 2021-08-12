@@ -75,7 +75,7 @@ export const Hero = () => {
             Bereksperimen dengan kode menggunakan Playground.`}
           </div>
 
-          <Link to="/vlab/courses">
+          <Link to="/courses">
             <button className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none mt-8">
               Mulai Belajar
               <i className="fas fa-arrow-right ml-4 mt-1" />

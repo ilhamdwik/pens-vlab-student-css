@@ -45,7 +45,7 @@ export const Homepage = () => {
           <div className="mt-2 dark:text-blueGray-100">
             Mulai belajar dengan menggunakan Course yang tersedia
           </div>
-          <Link to="/vlab/courses">
+          <Link to="/courses">
             <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer">
               Lihat semua Course
               <i className="fas fa-arrow-right text-xs ml-4" />
@@ -56,7 +56,7 @@ export const Homepage = () => {
           {courseList?.map((v) => {
             return (
               <Link
-                to={`/vlab/courses/${v.id}`}
+                to={`/courses/${v.id}`}
                 key={v.id}
                 className="flex flex-col justify-between p-4 shadow-xl rounded-lg bg-white border-t-4 border-blue-400 dark:border-blue-600 hover:shadow-2xl hover:scale-105 transform transition focus:outline-none text-left dark:bg-blueGray-900"
               >
@@ -114,7 +114,7 @@ export const Homepage = () => {
               Mulai bereksperimen dengan kode menggunakan Playground
             </div>
             <Link
-              to="/vlab/playground"
+              to="/playground"
               className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none mt-8"
             >
               Buka Playground

@@ -86,7 +86,7 @@ export const Navbar = ({
           <div className="my-8" />
           <div className="flex flex-col">
             <Link
-              to="/vlab"
+              to=""
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
                 setOpenSidebar(false);
@@ -95,7 +95,7 @@ export const Navbar = ({
               Beranda
             </Link>
             <Link
-              to="/vlab/courses"
+              to="/courses"
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
                 setOpenSidebar(false);
@@ -104,7 +104,7 @@ export const Navbar = ({
               Course
             </Link>
             <Link
-              to="/vlab/quiz"
+              to="/quiz"
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
                 setOpenSidebar(false);
@@ -113,7 +113,7 @@ export const Navbar = ({
               Kuis
             </Link>
             <Link
-              to="/vlab/playground"
+              to="/playground"
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
                 setOpenSidebar(false);
@@ -125,7 +125,7 @@ export const Navbar = ({
         </div>
       </SwipeableDrawer>
       <nav className="container mx-auto px-6 lg:px-16 flex items-center">
-        <Link to="/vlab">
+        <Link to="">
           <LogoText className="w-32 h-10 lg:w-40 lg:h-12" />
         </Link>
         <div className="flex-1 lg:hidden" />
@@ -150,21 +150,21 @@ export const Navbar = ({
         <div className="hidden lg:flex flex-1 space-x-10 mx-10">
           <div className="flex-1" />
           <Link
-            to="/vlab"
+            to=""
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Beranda</span>
           </Link>
           <CourseMenu />
           <Link
-            to="/vlab/quiz"
+            to="/quiz"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Kuis</span>
           </Link>
 
           <Link
-            to="/vlab/playground"
+            to="/playground"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Playground</span>

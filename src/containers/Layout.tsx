@@ -13,7 +13,7 @@ export const Layout: React.FC<{}> = ({ children }) => {
     <div className={`${dark ? "dark" : ""} overflow-x-hidden`}>
       <Navbar />
       <div className="pt-16 dark:bg-blueGray-800">{children}</div>
-      {pathname !== "/vlab/playground" && <Footer />}
+      {pathname !== "/playground" && <Footer />}
     </div>
   );
 };

@@ -119,7 +119,7 @@ export const CourseDetail = () => {
                   <div
                     onClick={() => {
                       if (enable) {
-                        history.push(`/vlab/lesson/${v.id}`);
+                        history.push(`/lesson/${v.id}`);
                       }
                     }}
                     key={v.id}

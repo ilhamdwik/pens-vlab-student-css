@@ -81,7 +81,7 @@ export const QuizDetail = () => {
         },
         onSuccess: () => {
           toast.success("Quiz submitted!");
-          history.replace("/vlab/quiz");
+          history.replace("/quiz");
         },
       })
     );
@@ -95,7 +95,7 @@ export const QuizDetail = () => {
       >
         <div className="container mx-auto px-6 lg:px-16 py-6 flex flex-col space-y-6 justify-center   ">
           <Link
-            to={`/vlab/quiz`}
+            to={`/quiz`}
             className="flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
           >
             <i className="fas fa-arrow-left text-xs mr-4" />

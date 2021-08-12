@@ -140,7 +140,7 @@ export const Quiz = () => {
                             </>
                           ) : null}
                         </div>
-                        <Link to={`/vlab/quiz/${v.quiz_id}`}>
+                        <Link to={`/quiz/${v.quiz_id}`}>
                           <Button className="w-full">Detail</Button>
                         </Link>
                       </Disclosure.Panel>

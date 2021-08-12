@@ -140,7 +140,7 @@ export const Courses = () => {
                               return (
                                 <Link
                                   key={_v.id}
-                                  to={`/vlab/lesson/${_v.submodules[0]?.id}`}
+                                  to={`/lesson/${_v.submodules[0]?.id}`}
                                   className=" inline-flex items-center p-4 rounded bg-white dark:bg-blueGray-800 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none justify-between"
                                 >
                                   <span>{_v.title}</span>
@@ -154,7 +154,7 @@ export const Courses = () => {
                         </div>
 
                         <Link
-                          to={`/vlab/courses/${v.id}`}
+                          to={`/courses/${v.id}`}
                           className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
                         >
                           Lihat semua Modul

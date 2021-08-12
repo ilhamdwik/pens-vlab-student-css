@@ -43,7 +43,7 @@ export const Markdown = ({ markdown }: { markdown: string }) => {
                         process.env.REACT_APP_ENV === "DEV"
                           ? process.env.REACT_APP_DOMAIN_DEV
                           : process.env.REACT_APP_DOMAIN
-                      }/vlab/playground`,
+                      }/playground`,
                       "_blank"
                     );
                   }}

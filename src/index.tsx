@@ -60,35 +60,31 @@ export const App = () => {
       <Switch>
         {process.env.REACT_APP_ENV === "DEV" ? (
           <Route
-            path="/vlab/___dummy-login___"
+            path="/___dummy-login___"
             exact
             render={() => <DummyLogin />}
           />
         ) : null}
 
-        <Route path="/vlab/load" exact render={() => <Loader />} />
+        <Route path="/load" exact render={() => <Loader />} />
 
         <ProtectedRoute
-          path="/vlab/"
+          path="/"
           component={() => (
             <Layout>
               <Switch>
-                <Route path="/vlab/home" exact component={Homepage} />
-                <Route path="/vlab/playground" exact component={Playground} />
-                <Route path="/vlab/quiz" exact component={Quiz} />
-                <Route path="/vlab/quiz/:id" exact component={QuizDetail} />
-                <Route path="/vlab/courses" exact component={Courses} />
-                <Route
-                  path="/vlab/courses/:id"
-                  exact
-                  component={CourseDetail}
-                />
-                <Route path="/vlab/lesson/:id" exact component={Lesson} />
+                <Route path="/home" exact component={Homepage} />
+                <Route path="/playground" exact component={Playground} />
+                <Route path="/quiz" exact component={Quiz} />
+                <Route path="/quiz/:id" exact component={QuizDetail} />
+                <Route path="/courses" exact component={Courses} />
+                <Route path="/courses/:id" exact component={CourseDetail} />
+                <Route path="/lesson/:id" exact component={Lesson} />
 
                 <Route
                   path="*"
                   component={() => {
-                    return <Redirect to="/vlab/home" />;
+                    return <Redirect to="/home" />;
                   }}
                 />
               </Switch>
@@ -99,7 +95,7 @@ export const App = () => {
         <Route
           path="*"
           render={() => {
-            return <Redirect to="/vlab/load" />;
+            return <Redirect to="/load" />;
           }}
         />
       </Switch>

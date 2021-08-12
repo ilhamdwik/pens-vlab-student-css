@@ -21,7 +21,7 @@ export const ProtectedRoute = ({
           return (
             <Redirect
               to={{
-                pathname: "/vlab/load",
+                pathname: "/load",
               }}
             />
           );

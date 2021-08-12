@@ -109,10 +109,8 @@ export const Lesson = () => {
             }
             history.push(
               activeIndex + 1 < lesson?.modules?.submodules?.length
-                ? `/vlab/lesson/${
-                    lesson?.modules?.submodules[activeIndex + 1].id
-                  }`
-                : `/vlab/courses/${lesson.modules.prog_languages.id}`
+                ? `/lesson/${lesson?.modules?.submodules[activeIndex + 1].id}`
+                : `/courses/${lesson.modules.prog_languages.id}`
             );
           }
         },
@@ -132,7 +130,7 @@ export const Lesson = () => {
         content="Please complete previous lesson first"
         buttons={[{ text: "OK" }]}
         onClose={() => {
-          history.replace(`/vlab/courses/${lesson?.modules.prog_languages.id}`);
+          history.replace(`/courses/${lesson?.modules.prog_languages.id}`);
         }}
       />
       <div
@@ -141,7 +139,7 @@ export const Lesson = () => {
       >
         <div className="container mx-auto px-6 lg:px-16 py-6 flex flex-col space-y-6 justify-center   ">
           <Link
-            to={`/vlab/courses/${lesson?.modules.prog_languages.id}`}
+            to={`/courses/${lesson?.modules.prog_languages.id}`}
             className="flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
           >
             <i className="fas fa-arrow-left text-xs mr-4" />
@@ -176,7 +174,7 @@ export const Lesson = () => {
                   key={v.id}
                   onClick={() => {
                     if (enable) {
-                      history.push(`/vlab/lesson/${v.id}`);
+                      history.push(`/lesson/${v.id}`);
                     }
                   }}
                   className={`flex items-center py-4 px-6 relative  ${
@@ -264,7 +262,7 @@ export const Lesson = () => {
             <div className="mt-12 flex">
               {activeIndex > 0 ? (
                 <Link
-                  to={`/vlab/lesson/${
+                  to={`/lesson/${
                     lesson?.modules?.submodules[activeIndex - 1].id
                   }`}
                   className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
