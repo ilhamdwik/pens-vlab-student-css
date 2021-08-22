@@ -80,7 +80,7 @@ export type Lesson = {
 
 export type admins = {
   id?: string;
-  user_id: string;
+  email: string;
   name: string;
   pswd: string;
   createdAt?: Date;
@@ -107,14 +107,12 @@ export type classes = {
 
 export type lecturers = {
   id?: string;
-  user_id: string;
   name: string;
   position: string;
   nip: string;
   avatar_url: string | null;
   createdAt?: Date;
   updatedAt?: Date;
-  users?: users;
 };
 
 /**
@@ -168,17 +166,6 @@ export type quizzes = {
 };
 
 /**
- * Model roles
- */
-
-export type roles = {
-  id?: string;
-  role_name: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-};
-
-/**
  * Model student_to_quiz
  */
 
@@ -203,14 +190,12 @@ export type student_to_quiz = {
 
 export type students = {
   id?: string;
-  user_id: string;
   class_id: string;
   name: string;
   nrp: string;
   avatar_url: string | null;
   createdAt?: Date;
   updatedAt?: Date;
-  users?: users;
   classes?: classes;
 };
 
@@ -256,28 +241,6 @@ export type user_progress = {
   submodule_id: string;
   is_done: boolean;
   last_answer: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-};
-
-/**
- * Model user_to_role
- */
-
-export type user_to_role = {
-  user_id: string;
-  role_id: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-};
-
-/**
- * Model users
- */
-
-export type users = {
-  id?: string;
-  email: string;
   createdAt?: Date;
   updatedAt?: Date;
 };

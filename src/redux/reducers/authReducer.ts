@@ -5,7 +5,6 @@ import { setUser, setToken } from "../actions/authActions";
 export type User = {
   email: string;
   id: string;
-  user_id: string;
   class_id: string;
   name: string;
   nrp: string;
