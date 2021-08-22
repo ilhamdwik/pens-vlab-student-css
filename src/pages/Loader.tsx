@@ -5,7 +5,11 @@ import { motion, useAnimation } from "framer-motion";
 import { ControlsAnimationDefinition } from "framer-motion/types/animation/types";
 import { Modal } from "../components/Modal";
 import axios from "axios";
-import { fetchUserCheck, setToken } from "../redux/actions/authActions";
+import {
+  fetchEtholUserDetail,
+  fetchUserCheck,
+  setToken,
+} from "../redux/actions/authActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { RootState } from "../redux/store";
@@ -15,7 +19,7 @@ export const Loader = () => {
   const token = useSelector((state: RootState) => state.auth.token);
   const history = useHistory();
   const controls = useAnimation();
-  const [cookies] = useCookies(["user"]);
+  const [cookies] = useCookies(["token"]);
   const [showModal, setShowModal] = React.useState(false);
 
   const initialAnimation: ControlsAnimationDefinition = (i) => ({
@@ -45,26 +49,32 @@ export const Loader = () => {
 
   const checkAuth = () => {
     if (!token) {
-      if (cookies.user && localStorage.getItem("userCas")) {
+      if (cookies.token) {
         dispatch(
-          fetchUserCheck.request({
-            data: {
-              token: cookies.user.token,
-              userCas: JSON.parse(localStorage.getItem("userCas") ?? "") as {
-                email: string;
-                nip?: string;
-                nrp?: string;
-              },
-            },
+          fetchEtholUserDetail.request({
+            token: cookies.token,
             onFailure: () => {
               setShowModal(true);
             },
-            onSuccess: (token: string) => {
-              dispatch(setToken(token));
-              axios.defaults.headers.common[
-                "Authorization"
-              ] = `Bearer ${token}`;
-              history.replace("/home");
+            onSuccess: (userDetail) => {
+              dispatch(
+                fetchUserCheck.request({
+                  data: {
+                    token: cookies.token,
+                    userDetail,
+                  },
+                  onFailure: () => {
+                    setShowModal(true);
+                  },
+                  onSuccess: (token: string) => {
+                    dispatch(setToken(token));
+                    axios.defaults.headers.common[
+                      "Authorization"
+                    ] = `Bearer ${token}`;
+                    history.replace("/home");
+                  },
+                })
+              );
             },
           })
         );
@@ -85,7 +95,13 @@ export const Loader = () => {
         content="Login gagal, pastikan anda sudah login ke ETHOL"
         buttons={[
           { text: "OK" },
-          { text: "Coba Lagi", onClick: () => setShowModal(false) },
+          {
+            text: "Coba Lagi",
+            onClick: () => {
+              setShowModal(false);
+              controls.start(initialAnimation);
+            },
+          },
         ]}
         onClose={() => {
           document.location.href = "https://ethol.pens.ac.id";
@@ -121,9 +137,12 @@ export const Loader = () => {
             onAnimationComplete={() => {
               //check auth here
               checkAuth();
-              controls.start(repeatAnimation).then(() => {
-                controls.start(initialAnimation);
-              });
+
+              if (!showModal) {
+                controls.start(repeatAnimation).then(() => {
+                  controls.start(initialAnimation);
+                });
+              }
             }}
           />
         </motion.svg>

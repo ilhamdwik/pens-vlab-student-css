@@ -1,9 +1,14 @@
 import { put, takeLatest } from "redux-saga/effects";
-import { fetchUserCheck, setUser } from "../actions/authActions";
+import {
+  fetchEtholUserDetail,
+  fetchUserCheck,
+  setUser,
+} from "../actions/authActions";
 import axios, { AxiosResponse } from "axios";
-import { userCheckApi } from "../../apis";
+import { etholUserDetailApi, userCheckApi } from "../../apis";
 import jwt from "jsonwebtoken";
 import { User } from "../reducers/authReducer";
+import { EtholStudent } from "../../types";
 
 function* userCheckSaga({
   payload,
@@ -25,6 +30,27 @@ function* userCheckSaga({
   }
 }
 
+function* fetchEtholUser({
+  payload,
+}: ReturnType<typeof fetchEtholUserDetail.request>) {
+  try {
+    const response: AxiosResponse<EtholStudent> = yield axios.get(
+      etholUserDetailApi,
+      {
+        headers: {
+          token: payload.token,
+        },
+      }
+    );
+
+    payload.onSuccess(response.data);
+  } catch (err: any) {
+    console.error(err.response);
+    payload.onFailure({ message: err?.response?.data } as Error);
+  }
+}
+
 export default function* auth() {
   yield takeLatest(fetchUserCheck.request, userCheckSaga);
+  yield takeLatest(fetchEtholUserDetail.request, fetchEtholUser);
 }

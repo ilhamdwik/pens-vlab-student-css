@@ -27,7 +27,7 @@ export const Hero = () => {
         <div className="flex-1 ">
           <div className="mb-8 flex space-x-8">
             <img
-              src="https://ethol.pens.ac.id/pens_putih.png"
+              src={require("../assets/images/pens_putih.png").default}
               alt="pens putih"
               className="w-12 h-12"
             />

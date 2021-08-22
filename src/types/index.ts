@@ -1,3 +1,13 @@
+export type EtholStudent = {
+  id: number;
+  nrp: string;
+  nama: string;
+  kelas: string;
+  program: string;
+  jurusan: string;
+  role: "mahasiswa";
+};
+
 export type Courses = {
   name: string;
   id: string;

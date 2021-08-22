@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="container mx-auto px-6 lg:px-16 flex flex-col lg:flex-row lg:space-x-12 space-y-12 py-8">
         <div className="flex flex-1 space-x-8 items-center">
           <img
-            src="https://ethol.pens.ac.id/pens_putih.png"
+            src={require("../assets/images/pens_putih.png").default}
             alt="pens putih"
             className="w-10 h-10"
           />

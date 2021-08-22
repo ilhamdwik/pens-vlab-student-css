@@ -1,4 +1,5 @@
 import { createAction, createAsyncAction } from "typesafe-actions";
+import { EtholStudent } from "../../types";
 import { User } from "../reducers/authReducer";
 
 export const setUser = createAction("SET_USER", (user?: User) => user)();
@@ -12,13 +13,23 @@ export const fetchUserCheck = createAsyncAction(
   {
     data: {
       token: string;
-      userCas: {
-        email: string;
-        nip?: string;
-        nrp?: string;
-      };
+      userDetail: EtholStudent;
     };
     onSuccess: (res: string) => void;
+    onFailure: (err: Error) => void;
+  },
+  string,
+  Error
+>();
+
+export const fetchEtholUserDetail = createAsyncAction(
+  "ETHOL_USER_REQUEST",
+  "ETHOL_USER_SUCCESS",
+  "ETHOL_USER_ERROR"
+)<
+  {
+    token: string;
+    onSuccess: (res: EtholStudent) => void;
     onFailure: (err: Error) => void;
   },
   string,
