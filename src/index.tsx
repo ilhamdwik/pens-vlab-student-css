@@ -22,6 +22,8 @@ import { Lesson } from "./pages/Lesson";
 import { Quiz } from "./pages/Quiz";
 import { QuizDetail } from "./pages/QuizDetail";
 import { CourseDetail } from "./pages/CourseDetail";
+import PlaygroundFull from "./pages/PlaygroundFull";
+
 import axios from "axios";
 import DummyLogin from "./pages/DummyLogin";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -80,6 +82,7 @@ export const App = () => {
                 <Route path="/courses" exact component={Courses} />
                 <Route path="/courses/:id" exact component={CourseDetail} />
                 <Route path="/lesson/:id" exact component={Lesson} />
+                <Route path="/playground_full" exact component={PlaygroundFull} />
 
                 <Route
                   path="*"

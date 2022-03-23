@@ -136,7 +136,7 @@ export const Navbar = ({
           className="focus:outline-none mr-6 lg:hidden"
         >
           {dark ? (
-            <i className="fas fa-sun text-lg text-yellow-200" />
+            <i className="fas fa-sun text-lg text-white" />
           ) : (
             <i className="fas fa-moon text-lg text-lightBlue-800" />
           )}
@@ -162,12 +162,17 @@ export const Navbar = ({
           >
             <span>Kuis</span>
           </Link>
-
           <Link
             to="/playground"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Playground</span>
+          </Link>
+          <Link
+            to="/playground_full"
+            className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
+          >
+            <span>Playground Full</span>
           </Link>
           <Popover className="relative">
             {({ open }) => (
@@ -252,7 +257,7 @@ export const Navbar = ({
             className="focus:outline-none"
           >
             {dark ? (
-              <i className="fas fa-sun text-lg text-yellow-200" />
+              <i className="fas fa-sun text-lg text-white" />
             ) : (
               <i className="fas fa-moon text-lg text-lightBlue-800" />
             )}

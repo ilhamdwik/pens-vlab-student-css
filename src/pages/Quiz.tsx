@@ -30,11 +30,12 @@ export const Quiz = () => {
       // nProgress.done();
     };
   }, []);
+  console.log(quizList.length)
 
   return (
     <div className="" style={{ minHeight: "80vh" }}>
       <div style={{}}>
-        <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900 ">
+        <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900 ">
           <div className="flex-1 text-center">
             <div className="font-black uppercase text-xs lg:text-base tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
               Kuis

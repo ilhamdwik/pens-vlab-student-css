@@ -11,7 +11,7 @@ import { Popover, Transition } from "@headlessui/react";
 import HashLoader from "react-spinners/ClipLoader";
 import { RootState } from "../redux/store";
 
-const phpThumbnail = require("../assets/images/php-logo-thumbnail.png").default;
+const cssThumbnail = require("../assets/images/css-logo.png").default;
 
 export const CourseMenu = () => {
   const dark = useSelector((state: RootState) => state.app.dark);
@@ -149,7 +149,7 @@ export const CourseMenu = () => {
                         <>
                           <div className="flex items-center space-x-6">
                             <img
-                              src={phpThumbnail}
+                              src={cssThumbnail}
                               alt="logo thumbnail"
                               className="h-12 w-12"
                             />

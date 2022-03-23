@@ -3,7 +3,7 @@ import { ReactComponent as LogoTextWhite } from "../assets/images/logo-text-whit
 
 export const Footer = () => {
   return (
-    <footer className="bg-lightBlue-900 dark:bg-blueGray-900">
+    <footer className="bg-violet-900 dark:bg-blueGray-900">
       <div className="container mx-auto px-6 lg:px-16 flex flex-col lg:flex-row lg:space-x-12 space-y-12 py-8">
         <div className="flex flex-1 space-x-8 items-center">
           <img
@@ -33,8 +33,14 @@ export const Footer = () => {
           <div className="font-black uppercase text-xs tracking-wider text-blueGray-200 dark:text-blue-400 mb-4">
             Kontak
           </div>
-          <div>Jl. Raya ITS - Kampus PENS Sukolilo Surabaya, Indonesia</div>
-          <div>+62 31 594 7280</div>
+          <a 
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.google.co.id/maps/place/Politeknik+Elektronika+Negeri+Surabaya/@-7.2758418,112.791567,17z/data=!3m1!4b1!4m5!3m4!1s0x2dd7fa10ea2ae883:0xbe22c55d60ef09c7!8m2!3d-7.2758471!4d112.7937557"
+          >
+              Jl. Raya ITS - Kampus PENS Sukolilo Surabaya, Indonesia
+          </a>
+          <div>(031) 5947280</div>
         </div>
       </div>
     </footer>

@@ -6,6 +6,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { baseUrl } from "../apis";
 import { fetchCourseDetail } from "../redux/actions/moduleActions";
 import { Course } from "../types";
+import { Button } from "../components/Button";
 
 export const CourseDetail = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -49,7 +50,7 @@ export const CourseDetail = () => {
     <div className="" style={{ minHeight: "80vh" }}>
       <div
         style={{}}
-        className="bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900"
+        className="bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"
       >
         <div className="container mx-auto px-6 lg:px-16 py-12 flex flex-col space-y-8 justify-center   ">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-6 lg:space-y-0 lg:space-x-12">
@@ -73,7 +74,7 @@ export const CourseDetail = () => {
                   <div className="overflow-hidden h-2 text-xs flex rounded bg-blue-50 dark:bg-lightBlue-400">
                     <div
                       style={{ width: percentProgress + "%" }}
-                      className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 dark:bg-blue-800"
+                      className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blueGray-600 dark:bg-blue-800"
                     ></div>
                   </div>
                 </div>
@@ -86,7 +87,7 @@ export const CourseDetail = () => {
         </div>
       </div>
       <div className="container mx-auto px-6 lg:px-16 py-12">
-        {courseDetail ? (
+        {courseDetail?.modules.length !== 0 ?
           <div className="lg:grid lg:grid-rows-1 lg:grid-cols-12 bg-white dark:bg-blueGray-900 rounded-lg border border-blueGray-300 dark:border-blueGray-900">
             <div className="font-bold py-4 text-blueGray-400 break-words col-span-3 border-b lg:border-b-0 lg:border-r border-blueGray-300 dark:border-blueGray-800">
               {courseDetail?.modules?.map((v, i) => {
@@ -94,9 +95,9 @@ export const CourseDetail = () => {
                   <div
                     key={v.id}
                     onClick={() => setActiveIndex(i)}
-                    className={` py-4 px-6 relative cursor-pointer hover:bg-blue-100 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 ${
+                    className={` py-4 px-6 relative cursor-pointer hover:bg-blueGray-300 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 ${
                       activeIndex === i &&
-                      "bg-blue-100 dark:bg-blueGray-800 text-blueGray-800 dark:text-blueGray-100"
+                      "bg-blueGray-300 dark:bg-blueGray-800 text-blueGray-800 dark:text-blueGray-100"
                     }`}
                   >
                     {v.title}
@@ -125,7 +126,7 @@ export const CourseDetail = () => {
                     key={v.id}
                     className={`flex items-center p-6 relative  bg-white border-b  dark:border-blueGray-600 dark:bg-blueGray-900  transition ease-in-out duration-200 ${
                       enable
-                        ? "hover:bg-blue-100 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 cursor-pointer"
+                        ? "hover:bg-blueGray-300 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 cursor-pointer"
                         : "text-blueGray-400 dark:text-blueGray-500"
                     }`}
                   >
@@ -143,7 +144,7 @@ export const CourseDetail = () => {
                       </div>
                     </div>
                     {v.user_progress[0]?.is_done ? (
-                      <span className="px-4 py-1 inline-flex font-semibold rounded-full bg-blue-100 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
+                      <span className="px-4 py-1 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
                         Selesai
                       </span>
                     ) : null}
@@ -152,7 +153,28 @@ export const CourseDetail = () => {
               })}
             </div>
           </div>
-        ) : null}
+        : <>
+            {/* className="flex-1 text-xl w-full items-center px-4 py-1 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100 mb-4" */}
+            {/* <div className="inline-flex justify-center font-medium text-2xl px-4 py-2 rounded-lg w-full mb-4">
+              <span className="bg-gradient-to-r from-blue-100 to-teal-200 bg-clip-text text-transparent">
+                Maaf Course ini belum memiliki Modul
+              </span>
+            </div> */}
+            <div className="inline-flex justify-center px-4 py-2 rounded-lg w-full mb-4 text-2xl font-medium">
+              <span className="text-lightBlue-800">
+                Maaf Course ini belum memiliki Modul
+              </span>
+            </div>
+            <Button
+              onClick={() => {
+                document.location.href = "/home";
+              }}
+              className="w-full "
+            >
+              Kembali ke Beranda
+            </Button>
+          </>
+      }
       </div>
     </div>
   );

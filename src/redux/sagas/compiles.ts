@@ -5,12 +5,12 @@ import { compileApi } from "../../apis";
 
 function* compileSaga({ payload }: ReturnType<typeof fetchCompile.request>) {
   try {
-    const phpFile = new Blob([payload.code], {
+    const cssFile = new Blob([payload.code], {
       type: "text/php",
     });
 
     const data = new FormData();
-    data.append("file", phpFile);
+    data.append("file", cssFile);
     data.append("prog_language", payload.progLanguage);
 
     const response: AxiosResponse<string> = yield axios.post(compileApi, data);

@@ -10,11 +10,10 @@ module.exports = {
     colors: {
       ...colors,
     },
-    fontFamily: {
-      body: ["Inter", "sans-serif"],
-      display: ["Inter", "sans-serif"],
-    },
     extend: {
+      flex: {
+        '2': '2 2 0%'
+      },
       typography: (theme) => ({
         default: {
           css: [
@@ -68,7 +67,7 @@ module.exports = {
                 color: theme("colors.blueGray.100"),
               },
               "a code": {
-                color: theme("colors.white"),
+                color: theme("colors.white")
               },
               thead: {
                 color: theme("colors.white"),
@@ -76,15 +75,24 @@ module.exports = {
               },
               "tbody tr": {
                 borderBottomColor: theme("colors.blueGray.600"),
-              },
+              }
             },
           ],
         },
       }),
+      animation: {
+        shake: 'keyShake 3s ease-in-out infinite',
+      },
+      keyframes: {
+        keyShake: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+      },
     },
   },
   variants: {
     extend: { typography: ["dark"] },
   },
-  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/typography")],
+  plugins: [ require("tailwind-scrollbar"), require("@tailwindcss/typography") ],
 };
