@@ -37,7 +37,7 @@ export const Courses = () => {
             <div className="font-black uppercase text-xs lg:text-base tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
               Course
             </div>
-            <div className="text-lg lg:text-3xl text-blueGray-600 dark:text-white font-bold">
+            <div className="text-lg lg:text-3xl text-blueGray-600 dark:text-blueGray-200 font-bold">
               Course yang Tersedia
             </div>
           </div>

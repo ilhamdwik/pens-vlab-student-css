@@ -244,3 +244,27 @@ export type user_progress = {
   createdAt?: Date;
   updatedAt?: Date;
 };
+
+export type forums = {
+  id: string;
+  author_id: string;
+  class_id: string;
+  question: string;
+  comments?: comments;
+  students?: students;
+  classes?: classes;
+  // forum: forum;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export type comments = {
+  id: string;
+  student_id: string;
+  forum_id: string;
+  answer: string;
+  students?: students;
+  forums?: forums;
+  createdAt?: Date;
+  updatedAt?: Date;
+}

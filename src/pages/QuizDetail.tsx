@@ -100,7 +100,7 @@ export const QuizDetail = () => {
         style={{}}
         className="bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"
       >
-        <div className="container mx-auto px-6 lg:px-16 py-6 flex flex-col space-y-6 justify-center   ">
+        <div className="container mx-auto px-6 lg:px-16 py-6 flex flex-col space-y-6 justify-center  ">
           <Link
             to={`/quiz`}
             className="flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
@@ -149,12 +149,22 @@ export const QuizDetail = () => {
               </div>
             </div>
           </div>
+          {quiz?.feedback ? (
+            <div className="flex flex-col space-y-2 my-4">
+              <div className="font-bold">
+                Feedback
+              </div>
+              <div className="text-medium text-justify">
+                {quiz?.feedback ?? "-"}
+              </div>
+            </div>
+          ): null}
           <div className="border-t dark:border-blueGray-600 my-6" />
           <pre className="font-body break-words whitespace-pre-line ">
             {quiz?.quizzes?.question}
           </pre>
           {quiz ? (
-            <article className="  prose dark:prose-light max-w-none">
+            <article className="prose dark:prose-light max-w-none">
               <div>
                 <h4>Kode</h4>
                 {quiz?.is_submitted ? (
@@ -187,7 +197,7 @@ export const QuizDetail = () => {
                           <h4>Output</h4>
                           <iframe 
                             title="output"
-                            className="p-4 bg-gray-200 dark:bg-white max-w-none overflow-y-scroll scrollbar scrollbar-thin rounded-md" style={{ width: "100%", height: "auto", borderColor: "rgb(0 0 0)" }}
+                            className="p-4 bg-gray-200 dark:bg-white max-h-full max-w-none overflow-y-scroll scrollbar scrollbar-thin rounded-md" style={{ width: "100%", height: "auto", borderColor: "rgb(0 0 0)" }}
                             srcDoc={result}
                           >
                           </iframe>
@@ -198,16 +208,6 @@ export const QuizDetail = () => {
               </div>
             </article>
           ) : null}
-          {quiz?.feedback ? (
-            <div className="flex flex-col space-y-2 my-4">
-              <div className="font-black uppercase tracking-wider text-lightBlue-600 dark:text-blue-400">
-                Feedback
-              </div>
-              <div className="text-medium text-blueGray-600 dark:text-white font-bold text-justify p-4 bg-gray-200 dark:bg-white max-w-none overflow-y-scroll scrollbar scrollbar-thin rounded-md" style={{ width: "100%", height: "auto", borderColor: "rgb(0 0 0)" }}>
-                {quiz?.feedback ?? "-"}
-              </div>
-            </div>
-          ): null}
           {quiz && !quiz.is_submitted ? (
             <div className="mt-12 flex">
               <div className="flex-1" />

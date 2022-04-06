@@ -6,7 +6,7 @@ export const formatName = (name: string): string => {
     if (i < 2) {
       newName += v + " ";
     } else {
-      newName += v.charAt(0) + ". ";
+      newName += v.charAt(0) + "";
     }
   });
 

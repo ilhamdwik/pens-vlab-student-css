@@ -53,7 +53,11 @@ export const Navbar = ({
           <div>
             <div className="cursor-pointer flex space-x-4 items-center focus:outline-none my-4">
               <img
-                src="https://ethol.pens.ac.id/api/images/user.png"
+                // src="https://ethol.pens.ac.id/api/images/user.png"
+                src={`https://avatars.dicebear.com/api/initials/${user?.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}.svg?backgroundColors[]=blue`}
                 alt="avatar"
                 className="w-10 h-10 rounded-full"
               />
@@ -121,6 +125,24 @@ export const Navbar = ({
             >
               Playground
             </Link>
+            <Link
+              to="/playground_full"
+              className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
+              onClick={() => {
+                setOpenSidebar(false);
+              }}
+            >
+              Playground Full
+            </Link>
+            <Link
+              to="/forum"
+              className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
+              onClick={() => {
+                setOpenSidebar(false);
+              }}
+            >
+              Forum
+            </Link>
           </div>
         </div>
       </SwipeableDrawer>
@@ -173,6 +195,12 @@ export const Navbar = ({
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Playground Full</span>
+          </Link>
+          <Link
+            to="/forum"
+            className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
+          >
+            <span>Forum</span>
           </Link>
           <Popover className="relative">
             {({ open }) => (

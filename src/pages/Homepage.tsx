@@ -7,12 +7,16 @@ import { RootState } from "../redux/store";
 import nProgress from "nprogress";
 import { fetchCourseList } from "../redux/actions/moduleActions";
 import { Courses } from "../types";
+import { student_to_quiz } from "../types";
 import { baseUrl } from "../apis";
+import { getQuiz } from "../redux/actions/quizActions";
+import moment from "moment";
 
 export const Homepage = () => {
   const dispatch = useDispatch();
   const dark = useSelector((state: RootState) => state.app.dark);
   const [courseList, setCourseList] = React.useState<Courses>();
+  const [quizList, setQuizList] = React.useState<student_to_quiz[]>([]);
   
   React.useEffect(() => {
       nProgress.start();
@@ -24,6 +28,15 @@ export const Homepage = () => {
               },
               onFailure: (err) => {},
           })
+      );
+      dispatch(
+        getQuiz.request({
+          onSuccess: (res) => {
+            setQuizList(res);
+            nProgress.done();
+          },
+          onFailure: (err) => {},
+        })
       );
 
       return () => {
@@ -42,7 +55,7 @@ export const Homepage = () => {
                   <div className="text-2xl text-blueGray-900 dark:text-blueGray-100 font-bold mt-4">
                       Belajar dengan Course
                   </div>
-                  <div className="mt-2 dark:text-blueGray-100">
+                  <div className="mt-2 text-base dark:text-blueGray-100">
                       Mulai belajar dengan menggunakan Course yang tersedia
                   </div>
                   <Link to="/courses">
@@ -118,7 +131,7 @@ export const Homepage = () => {
                       <div className="text-2xl text-blueGray-900 font-bold mt-4 dark:text-blueGray-100">
                           Bereksperimen dengan kode
                       </div>
-                      <div className="mt-2 dark:text-blueGray-100">
+                      <div className="mt-2 text-base dark:text-blueGray-100">
                           Mulai bereksperimen dengan kode Playground
                       </div>
                       <Link
@@ -140,7 +153,7 @@ export const Homepage = () => {
                     <div className="text-2xl text-blueGray-900 font-bold mt-4 dark:text-blueGray-100">
                         Memperdalam Pemahaman
                     </div>
-                    <div className="mt-2 dark:text-blueGray-100">
+                    <div className="mt-2 text-base dark:text-blueGray-100">
                         Mulai mengerjakan Kuis
                     </div>
                     <Link to="/quiz">
@@ -150,36 +163,38 @@ export const Homepage = () => {
                       </div>
                   </Link>
                 </div>
-                {/* <div className="flex-1 grid lg:grid-cols-3 grid-cols-1 lg:grid-rows-1 lg:gap-8 lg:mt-2">
-                  {courseList?.map((v) => {
-                      return (
-                          <Link
-                              to={`/courses/${v.id}`}
-                              key={v.id}
-                              className="flex flex-col justify-between p-4 shadow-xl rounded-lg bg-white border-t-4 border-blue-400 dark:border-blue-600 hover:shadow-2xl hover:scale-105 transform transition focus:outline-none text-left dark:bg-blueGray-900"
-                          >
-                              <div>
-                                  <div className="flex items-center space-x-6 justify-between">
-                                      <div className="text-base font-bold dark:text-blueGray-100">
-                                          {v.name}
-                                      </div>
-                                      <img 
-                                          src={baseUrl + v.thumbnail_url} 
-                                          alt="logo thumbnail"
-                                          className="h-10 w-10" 
-                                      />
-                                  </div>
-                                  <div className="mt-4 dark:text-blueGray-100">
-                                      {v.modules.length} Modul
-                                  </div>
-                              </div>
-                              <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer self-end">
-                                  Pelajari
-                              </div>
-                          </Link>
-                      );
-                  }) }
-              </div>  */}
+                <div className="flex-1 grid lg:grid-cols-3 grid-cols-1 lg:grid-rows-1 lg:gap-8 lg:mt-2">
+                    {quizList?.map((v) => {
+                        return(
+                            <Link
+                                to={`/quiz/${v.quiz_id}`}
+                                key={v.quizzes?.id}
+                                className="flex flex-col justify-between p-4 shadow-xl rounded-lg bg-white border-t-4 border-blue-400 dark:border-blue-600 hover:shadow-2xl hover:scale-105 transform transition focus:outline-none text-left dark:bg-blueGray-900"
+                            >
+                                <div>
+                                    <div className="flex items-center space-x-6 justify-between">
+                                        <div className="text-base font-bold dark:text-blueGray-100">
+                                            {v.quizzes?.title}
+                                        </div>
+                                        <img 
+                                            src={baseUrl + v.quizzes?.prog_languages?.thumbnail_url} 
+                                            alt="logo thumbnail"
+                                            className="h-10 w-10" 
+                                        />
+                                    </div>
+                                    <div className="mt-4 dark:text-blueGray-100">
+                                        {moment(v.quizzes?.due_time).format(
+                                            "HH:mm, DD MMMM YYYY"
+                                        )}
+                                    </div>
+                                </div>
+                                <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer self-end">
+                                    Lihat Quiz
+                                </div>
+                            </Link>
+                        )
+                    })}
+                </div>
             </div>
           </div>
       </div>

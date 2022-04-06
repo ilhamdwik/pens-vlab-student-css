@@ -1,23 +1,33 @@
 import React from 'react';
-import { Editor } from '../components/EditorFull';
-// import useLocalStorage from '../../hooks/useLocalStorage';
-import '../assets/styles/editorFull.css';
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import Editor from "@monaco-editor/react";
 
-function PlaygroundFull() {
-  const [html, setHtml] = React.useState('')
-  const [css, setCss] = React.useState('')
-  const [js, setJs] = React.useState('')
-  const [srcDoc, setSrcDoc] = React.useState('')
+export const PlaygroundFull = () => {
+  const { dark } = useSelector((state: RootState) => state.app);
+  const [html, setHtml] = React.useState(`<html>
+  <head>
+  <title>Hello</title>
+  </head>
+  <body>
+      <h1>Hello!</h1>
+      <p>Write HTML, CSS or JavaScript code here and click 'Run Code'.</p>
 
-//   const [html, setHtml] = useState(`<html>
-//   <head>
-//   <title>Hello</title>
-//   </head>
-//   <body>
-//       <h1>Hello!</h1>
-//       <p>Write HTML, CSS or JavaScript code here and click 'Run Code'.</p>
-//   </body>
-// </html>`, '')
+      <h2 id="result"></h2>
+  </body>
+</html>`)
+  const [css, setCss] = React.useState(`h1 {
+  color: lightblue;
+}
+
+#result{
+  color: green;
+}`)
+  const [js, setJs] = React.useState(`var x = 5;
+var y = 4;
+var z = x + y;
+document.getElementById("result").innerHTML = z;`)
+  const [srcDoc, setSrcDoc] = React.useState("")
 
 //   const [css, setCss] = useState(`h1 {
 //   color: red;
@@ -44,36 +54,40 @@ function PlaygroundFull() {
 
   return (
     <>
-      <div className="pane top-pane">
+    {/* <div className="my-4 px-3 font-black text-xs tracking-wider text-blue-600 dark:text-blue-400">SCRIPT KODE */}
+      <div className="border" style={{ height: "50vh", display: "flex" }}>
         <Editor
-          language="xml"
-          displayName="HTML"
+          defaultLanguage="html"
+          defaultValue={html}
           value={html}
-          onChange={setHtml}
+          onChange={(value) => setHtml(value ?? "asd")}
+          theme={dark ? "vs-dark" : "light"}
         />
         <Editor
-          language="css"
-          displayName="CSS"
+          defaultLanguage="css"
+          defaultValue={css}
           value={css}
-          onChange={setCss}
+          onChange={(value) => setCss(value ?? "asd")}
+          theme={dark ? "vs-dark" : "light"}
         />
         <Editor
-          language="javascript"
-          displayName="JS"
+          defaultLanguage="javascript"
+          defaultValue={js}
           value={js}
-          onChange={setJs}
+          onChange={(value) => setJs(value ?? "asd")}
+          theme={dark ? "vs-dark" : "light"}
         />
       </div>
-      <div className="pane dark:bg-trueGray-200">
+    {/* </div> */}
+    {/* <div className='my-4 px-3 font-black text-xs tracking-wider text-blue-600 dark:text-blue-400'>OUTPUT KODE */}
+      <div className="dark:bg-trueGray-200" style={{ height: "50vh", display: "flex" }}>
         <iframe
+          className="flex-2 dark:bg-trueGray-200 max-w-none overflow-y-scroll scrollbar scrollbar-thin"
           srcDoc={srcDoc}
           title="output"
-          sandbox="allow-scripts"
-          frameBorder="0"
-          width="100%"
-          height="100%"
         />
       </div>
+    {/* </div> */}
     </>
   )
 }
