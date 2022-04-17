@@ -20,13 +20,12 @@ import { RootState } from "../redux/store";
 import { toast } from "react-toastify";
 import { useHistory } from 'react-router';
 import { formatName } from "../utils/formatter";
-// import forum from "../redux/sagas/forums";
 
 export const Forum = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const { id } = useParams<{ id: string }>();
   const { user } = useSelector((state: RootState) => state.auth);
-  const dispatch = useDispatch();
-  const history = useHistory();
   const [forumList, setForumList] = React.useState<forums[]>([]);
   const [question, setQuestion] = React.useState("");
   const [loading, setLoading] = React.useState(id ? true : false);
@@ -177,14 +176,7 @@ export const Forum = () => {
                       >
                         <i className="fas fa-trash" />
                       </Button>
-                    ) : (
-                      <Button
-                        disabled
-                        className="ml-2"
-                      >
-                        <i className="fas fa-trash" />
-                      </Button>
-                    )}
+                    ) : null}
                   </div>
                 </form>
                 </>
@@ -222,7 +214,8 @@ export const Forum = () => {
                 }
                 className="col-span-2"
               >
-                <i className="fas fa-undo" />Send
+                <i className="fas fa-paper-plane mr-2" />
+                Send
               </Button>
             </div>
           </div>

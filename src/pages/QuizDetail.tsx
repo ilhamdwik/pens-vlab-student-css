@@ -4,11 +4,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { student_to_quiz } from "../types";
-// import { Parse } from "../components/HTMLParser";
 import Editor from "@monaco-editor/react";
 import { RootState } from "../redux/store";
-// import HashLoader from "react-spinners/ClipLoader";
-// import { fetchCompile } from "../redux/actions/compileActions";
 import { baseUrl } from "../apis";
 import { getDetailQuiz, postSubmitQuiz } from "../redux/actions/quizActions";
 import moment from "moment";
@@ -21,13 +18,8 @@ export const QuizDetail = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [code, setCode] = React.useState("");
-  // const [compileLoading, setCompileLoading] = React.useState(false);
   const [result, setResult] = React.useState("");
   const [quiz, setQuiz] = React.useState<student_to_quiz>();
-
-  // React.useEffect(() => {
-  //   setResult("");
-  // }, [code]);
 
   React.useEffect(() => {
     const timeout = setTimeout(() => {
@@ -54,26 +46,6 @@ export const QuizDetail = () => {
       nProgress.done();
     };
   }, [params.id]);
-
-  // const onCompile = () => {
-  //   setCompileLoading(true);
-  //   if (quiz) {
-  //     dispatch(
-  //       fetchCompile.request({
-  //         code,
-  //         progLanguage: quiz.quizzes?.prog_languages_id ?? "",
-  //         onSuccess: (res) => {
-  //           setCompileLoading(false);
-  //           setResult(res);
-  //         },
-  //         onFailure: (err) => {
-  //           setCompileLoading(false);
-  //           setResult(err.message);
-  //         },
-  //       })
-  //     );
-  //   }
-  // };
 
   const onSubmit = () => {
     dispatch(
@@ -211,14 +183,6 @@ export const QuizDetail = () => {
           {quiz && !quiz.is_submitted ? (
             <div className="mt-12 flex">
               <div className="flex-1" />
-
-              {/* <button
-                onClick={onCompile}
-                className="mr-4 inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-blue-600 bg-white hover:bg-blue-50 focus:outline-none ring-2"
-              >
-                Run Code
-                <i className="fas fa-undo ml-4 mt-1" />
-              </button> */}
               <Button
                 onClick={() => {
                   onSubmit();

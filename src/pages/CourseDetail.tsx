@@ -46,6 +46,7 @@ export const CourseDetail = () => {
       nProgress.done();
     };
   }, []);
+  
   return (
     <div className="" style={{ minHeight: "80vh" }}>
       <div
@@ -73,7 +74,10 @@ export const CourseDetail = () => {
                 <div className="flex flex-1 flex-col justify-center">
                   <div className="overflow-hidden h-2 text-xs flex rounded bg-blue-50 dark:bg-lightBlue-400">
                     <div
-                      style={{ width: percentProgress + "%" }}
+                      style={{ 
+                        width: 
+                          percentProgress + "%" 
+                      }}
                       className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blueGray-600 dark:bg-blue-800"
                     ></div>
                   </div>
@@ -154,12 +158,6 @@ export const CourseDetail = () => {
             </div>
           </div>
         : <>
-            {/* className="flex-1 text-xl w-full items-center px-4 py-1 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100 mb-4" */}
-            {/* <div className="inline-flex justify-center font-medium text-2xl px-4 py-2 rounded-lg w-full mb-4">
-              <span className="bg-gradient-to-r from-blue-100 to-teal-200 bg-clip-text text-transparent">
-                Maaf Course ini belum memiliki Modul
-              </span>
-            </div> */}
             <div className="inline-flex justify-center px-4 py-2 rounded-lg w-full mb-4 text-2xl font-medium">
               <span className="text-lightBlue-800">
                 Maaf Course ini belum memiliki Modul
@@ -174,7 +172,7 @@ export const CourseDetail = () => {
               Kembali ke Beranda
             </Button>
           </>
-      }
+        }
       </div>
     </div>
   );

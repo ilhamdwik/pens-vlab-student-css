@@ -65,6 +65,7 @@ export const Courses = () => {
               }
             });
           });
+          
           return (
             <Disclosure key={v.id}>
               {({ open }) => (
@@ -97,7 +98,7 @@ export const Courses = () => {
                       </div>
                     </div>
                     <div className="col-span-8 space-x-4 items-center hidden lg:flex">
-                      <div className="font-medium uppercase tracking-wider  dark:text-blueGray-100">
+                      <div className="font-medium uppercase tracking-wider dark:text-blueGray-100">
                         {((100 * done) / total)?.toFixed(0)}%
                       </div>
                       <div className="flex flex-1 flex-col justify-center">
@@ -106,8 +107,8 @@ export const Courses = () => {
                             style={{
                               width: ((100 * done) / total)?.toFixed(0) + "%",
                             }}
-                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blueGray-600 dark:bg-blue-800"
-                          ></div>
+                            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blueGray-600 dark:bg-blue-800">
+                          </div>
                         </div>
                       </div>
                     </div>

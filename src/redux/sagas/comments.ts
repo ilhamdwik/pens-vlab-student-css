@@ -29,7 +29,7 @@ function* postCommentSaga({
     payload,
 }: ReturnType<typeof postCreateComment.request>) {
     try {
-        const response: AxiosResponse<comments> = yield axios.post(postCommentsApi);
+        const response: AxiosResponse<comments> = yield axios.post(postCommentsApi, payload.data);
 
         payload.onSuccess(response.data);
     } catch (err: any) {

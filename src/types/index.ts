@@ -253,7 +253,6 @@ export type forums = {
   comments?: comments;
   students?: students;
   classes?: classes;
-  // forum: forum;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -261,10 +260,11 @@ export type forums = {
 export type comments = {
   id: string;
   student_id: string;
+  class_id: string;
   forum_id: string;
   answer: string;
   students?: students;
-  forums?: forums;
+  classes?: classes;
   createdAt?: Date;
   updatedAt?: Date;
 }

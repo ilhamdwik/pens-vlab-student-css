@@ -22,6 +22,7 @@ export const postCreateComment = createAsyncAction(
     {
         data: {
             student_id: string;
+            class_id: string;
             forum_id: string;
             answer: string;
         };
