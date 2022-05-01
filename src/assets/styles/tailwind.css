@@ -629,7 +629,7 @@ video {
   margin-bottom: 3em;
 }
 
-/* .prose blockquote{
+.prose blockquote{
   font-weight: 500;
   font-style: italic;
   color: #18181b;
@@ -639,7 +639,7 @@ video {
   margin-top: 1.6em;
   margin-bottom: 1.6em;
   padding-left: 1em;
-} */
+}
 
 .prose blockquote p:first-of-type::before{
   content: open-quote;
@@ -1063,11 +1063,6 @@ video {
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 
-.bg-violet-50{
-  --tw-bg-opacity: 1;
-  background-color: rgba(245, 243, 255, var(--tw-bg-opacity));
-}
-
 .bg-violet-100{
   --tw-bg-opacity: 1;
   background-color: rgba(237, 233, 254, var(--tw-bg-opacity));
@@ -1101,6 +1096,21 @@ video {
 .bg-blue-600{
   --tw-bg-opacity: 1;
   background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
+}
+
+.bg-lightBlue-50{
+  --tw-bg-opacity: 1;
+  background-color: rgba(240, 249, 255, var(--tw-bg-opacity));
+}
+
+.bg-lightBlue-200{
+  --tw-bg-opacity: 1;
+  background-color: rgba(186, 230, 253, var(--tw-bg-opacity));
+}
+
+.bg-lightBlue-900{
+  --tw-bg-opacity: 1;
+  background-color: rgba(12, 74, 110, var(--tw-bg-opacity));
 }
 
 .bg-orange-400{
@@ -1168,6 +1178,11 @@ video {
   background-color: rgba(30, 64, 175, var(--tw-bg-opacity));
 }
 
+.hover\:bg-lightBlue-200:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgba(186, 230, 253, var(--tw-bg-opacity));
+}
+
 .hover\:bg-blueGray-200:hover{
   --tw-bg-opacity: 1;
   background-color: rgba(226, 232, 240, var(--tw-bg-opacity));
@@ -1213,11 +1228,6 @@ video {
   background-color: rgba(39, 39, 42, var(--tw-bg-opacity));
 }
 
-.dark .dark\:bg-gray-900{
-  --tw-bg-opacity: 1;
-  background-color: rgba(24, 24, 27, var(--tw-bg-opacity));
-}
-
 .dark .dark\:bg-blueGray-600{
   --tw-bg-opacity: 1;
   background-color: rgba(71, 85, 105, var(--tw-bg-opacity));
@@ -1261,9 +1271,9 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 255, 255, 0));
 }
 
-.from-blue-100{
-  --tw-gradient-from: #dbeafe;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(219, 234, 254, 0));
+.from-lightBlue-200{
+  --tw-gradient-from: #bae6fd;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(186, 230, 253, 0));
 }
 
 .from-blueGray-300{
@@ -1280,8 +1290,8 @@ video {
   --tw-gradient-to: #fff;
 }
 
-.to-teal-200{
-  --tw-gradient-to: #99f6e4;
+.to-blue-50{
+  --tw-gradient-to: #eff6ff;
 }
 
 .to-blueGray-50{

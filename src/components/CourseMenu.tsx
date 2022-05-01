@@ -165,7 +165,7 @@ export const CourseMenu = () => {
                               Mulai
                             </Popover.Button>
                           </div>
-                          <div className="text-blueGray-600 dark:text-blueGray-200">
+                          <div className="text-blueGray-600 dark:text-blueGray-200 text-justify">
                             {courseDetail?.description}
                           </div>
                           <div className="pb-10">
@@ -188,15 +188,15 @@ export const CourseMenu = () => {
                                     </Popover.Button>
                                   );
                                 })}
+                              <Popover.Button
+                                as={Link}
+                                to={`/courses/${courseDetail?.id}`}
+                                className="flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
+                              >
+                                Lihat semua Modul
+                                <i className="fas fa-arrow-right text-xs ml-4" />
+                              </Popover.Button>
                             </div>
-                            <Popover.Button
-                              as={Link}
-                              to={`/courses/${courseDetail?.id}`}
-                              className="mt-4 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
-                            >
-                              Lihat semua Modul
-                              <i className="fas fa-arrow-right text-xs ml-4" />
-                            </Popover.Button>
                           </div>
                         </>
                       ) : (

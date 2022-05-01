@@ -32,7 +32,8 @@ export const Courses = () => {
   return (
     <div className="" style={{ minHeight: "80vh" }}>
       <div style={{}}>
-        <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900 ">
+      <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900 ">
+        {/* <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900 "> */}
           <div className="flex-1 text-center">
             <div className="font-black uppercase text-xs lg:text-base tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
               Course
@@ -70,7 +71,8 @@ export const Courses = () => {
             <Disclosure key={v.id}>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex lg:grid lg:grid-cols-12 lg:grid-rows-1 items-center w-full p-6 text-sm font-medium text-left text-blue-900 bg-blueGray-300 dark:text-blueGray-100 dark:bg-blueGray-900 rounded hover:bg-blueGray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  {/* <Disclosure.Button className="flex lg:grid lg:grid-cols-12 lg:grid-rows-1 items-center w-full p-6 text-sm font-medium text-left text-blue-900 bg-blueGray-300 dark:text-blueGray-100 dark:bg-blueGray-900 rounded hover:bg-blueGray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"> */}
+                  <Disclosure.Button className="flex lg:grid lg:grid-cols-12 lg:grid-rows-1 items-center w-full p-6 text-sm font-medium text-left text-blue-900 bg-blue-100 dark:text-blueGray-100 dark:bg-blueGray-900 rounded hover:bg-lightBlue-200 focus:outline-none focus-visible:ring focus-visible:ring-lightBlue-400 focus-visible:ring-opacity-75">
                     <div className="text-base font-bold flex items-center flex-1 lg:col-span-3">
                       <img
                         src={baseUrl + v.thumbnail_url}
@@ -80,7 +82,7 @@ export const Courses = () => {
                       <div className="flex-1">
                         <span>{v.name}</span>
                         <div className="col-span-8 space-x-4 items-center flex mr-12 lg:hidden mt-2">
-                          <div className="font-medium text-xs uppercase tracking-wider  dark:text-blueGray-100">
+                          <div className="font-medium text-xs uppercase tracking-wider dark:text-blueGray-100">
                             {((100 * done) / total)?.toFixed(0)}%
                           </div>
                           <div className="flex flex-1 flex-col justify-center">
@@ -131,8 +133,9 @@ export const Courses = () => {
                     leaveFrom="transform translate-y-0  opacity-100"
                     leaveTo="transform  -translate-y-12 opacity-0"
                   >
-                    <Disclosure.Panel className="p-6 rounded bg-blueGray-300 dark:bg-blueGray-900 mt-1 dark:text-blueGray-100 flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-12">
-                      <div className="flex-1 text-blueGray-800 dark:text-blueGray-200 text-base">
+                    {/* <Disclosure.Panel className="p-6 rounded bg-blueGray-300 dark:bg-blueGray-900 mt-1 dark:text-blueGray-100 flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-12"> */}
+                    <Disclosure.Panel className="p-6 rounded bg-blue-100 dark:bg-blueGray-900 mt-1 dark:text-blueGray-100 flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-12">
+                      <div className="flex-1 text-blueGray-800 dark:text-blueGray-200 text-base text-justify">
                         {v.description}
                       </div>
                       <div className="flex-1">

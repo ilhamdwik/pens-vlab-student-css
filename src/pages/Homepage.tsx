@@ -45,7 +45,8 @@ export const Homepage = () => {
     }, []);
   
   return (
-      <div className="bg-violet-50 dark:bg-blueGray-600">
+    //   <div className="bg-violet-50 dark:bg-blueGray-600">
+      <div className="dark:bg-blueGray-600">
           <Hero />
           <div className="container mx-auto flex flex-col lg:flex-row px-6 lg:px-16 space-y-16 lg:space-y-0 lg:space-x-16 py-16 lg:py-24">
               <div className="max-w-xs">
@@ -96,7 +97,8 @@ export const Homepage = () => {
                   }) }
               </div> 
           </div>
-          <div className="bg-violet-200 dark:bg-blueGray-800">
+          {/* <div className="bg-violet-200 dark:bg-blueGray-800">*/}
+          <div className="bg-lightBlue-50 dark:bg-blueGray-800">
               <div className="container mx-auto flex flex-col lg:flex-row items-center px-6 lg:px-16 space-y-16 lg:space-y-0 lg:space-x-16 py-16 lg:py-24">
                   <div className="flex-2 flex justify-end">
                       <div className="max-w-xl">
@@ -113,15 +115,6 @@ export const Homepage = () => {
                                       : require("../assets/images/playground-light.JPG").default
                               }
                           />
-                          {/* <img 
-                              src="../assets/images/playground.png"
-                              alt="..."
-                              className="max-w-full rounded-lg shadow-xl"
-                              style={{
-                                  transform:
-                                      ""
-                              }}
-                          /> */}
                       </div>
                   </div>
                   <div className="flex-1">
@@ -144,7 +137,8 @@ export const Homepage = () => {
                   </div>
               </div>
           </div>
-          <div className="bg-violet-100 dark:bg-blueGray-700">
+          {/* <div className="bg-violet-100 dark:bg-blueGray-700"> */}
+          <div className="dark:bg-blueGray-700">
             <div className="container mx-auto flex flex-col lg:flex-row items-center px-6 lg:px-16 space-y-16 lg:space-y-0 lg:space-x-16 py-16 lg:py-24">   
                 <div className="max-w-xs">
                     <div className="font-black uppercase text-xs tracking-wider text-blue-600 dark:text-blue-400">

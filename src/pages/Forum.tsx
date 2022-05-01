@@ -100,7 +100,8 @@ export const Forum = () => {
       <div
         style={{}}
       >
-        <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900">
+        {/* <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"> */}
+        <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900">
           <div className="flex items-center space-x-8">
             <div className="flex-1 text-center">
               <div className="font-black uppercase text-xs lg:text-base tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
@@ -113,13 +114,10 @@ export const Forum = () => {
               <div className="flex flex-col space-y-2">
                 <div className="font-black uppercase tracking-wider text-lightBlue-600 dark:text-blue-400">
                   {/* <Link
-                    to={``}
+                    to="send"
                   >
                     <Button>New Chat</Button>
                   </Link> */}
-                </div>
-                <div className="text-2xl text-blueGray-600 dark:text-white font-bold text-right">
-                  {/* {quiz?.score ?? "-"} */}
                 </div>
               </div>
           </div>
@@ -158,14 +156,13 @@ export const Forum = () => {
                       to={`/forum/${v.id}`}
                     >
                       <span className="py-1 inline-flex font-semibold rounded-full text-blue-800 dark:text-blueGray-100 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none">
-                        {/* {v.comments?} */}
-                        {/* {forumList.length} */}
                         <i className="px-2">
                             <FontAwesomeIcon icon={faComments} />
                         </i>
                       </span>
                     </Link>
-                    <span className="px-3 py-1 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
+                    {/* <span className="px-3 py-1 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100"> */}
+                    <span className="px-3 py-1 inline-flex font-semibold rounded-full bg-blue-100 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
                       {moment(v.createdAt).format(
                         "HH:mm, DD MMMM YYYY"
                       )}
@@ -202,12 +199,12 @@ export const Forum = () => {
                 className="text-blueGray-600 dark:text-blueGray-200"
                 placeholder="Text"
                 value={question}
+                name="send"
                 onChange={(e) => setQuestion(e.target.value)}
               />
             </div>
             <div className="py-2 px-4 lg:grid lg:grid-rows-1 lg:grid-cols-12">
               <Button
-                // onClick={() => {setRefresh(true)}}
                 disabled={
                   !question || 
                   loading

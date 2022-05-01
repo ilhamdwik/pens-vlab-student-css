@@ -5,13 +5,13 @@ import { ReactComponent as LogoText } from "../assets/images/logo-text.svg";
 
 export const DummyLogin = () => {
   const history = useHistory();
-  const [tokenJwt, setTokenJwt] = React.useState("");
+  const [tokenStudent, setTokenStudent] = React.useState("");
   const [, setCookie] = useCookies(["user"]);
 
   const onClickDummyStudent = () => {
     setCookie(
       "token",
-      tokenJwt
+      tokenStudent
       // token adam
       // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21vciI6MTY4NzIsIm5pcG5ycCI6IjIxMTAxODEwNTQiLCJuYW1hIjoiUml6a3kgQWRhbSBQYW1idWRpIiwiaGFrQWtzZXMiOlsibWFoYXNpc3dhIl0sImlhdCI6MTY0NjcwMzYwMX0.QPv9Lnf-JesnrrBgbUkUckNR3xggiIS2OIxZc_wqqBw"
       // token ahmed
@@ -49,8 +49,8 @@ export const DummyLogin = () => {
                     type="text" 
                     name="token" 
                     placeholder="token" 
-                    value={tokenJwt} 
-                    onChange={(e) => setTokenJwt(e.target.value)} 
+                    value={tokenStudent} 
+                    onChange={(e) => setTokenStudent(e.target.value)} 
                     className={`mt-1 p-2 block w-full focus:outline-none dark:text-gray-200 leading-5 rounded-md focus:border-indigo-400 border border-gray-300 dark:border-blueGray-600 focus:ring focus:ring-indigo-300 dark:focus:border-blueGray-600 dark:focus:ring-blue-600 dark:bg-blueGray-900`}
                   />
                 </div>

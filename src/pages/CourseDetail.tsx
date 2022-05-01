@@ -51,9 +51,10 @@ export const CourseDetail = () => {
     <div className="" style={{ minHeight: "80vh" }}>
       <div
         style={{}}
-        className="bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"
+        // className="bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"
+        className="bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900"
       >
-        <div className="container mx-auto px-6 lg:px-16 py-12 flex flex-col space-y-8 justify-center   ">
+        <div className="container mx-auto px-6 lg:px-16 py-12 flex flex-col space-y-8 justify-center">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-6 lg:space-y-0 lg:space-x-12">
             <img
               src={baseUrl + courseDetail?.thumbnail_url}
@@ -68,7 +69,7 @@ export const CourseDetail = () => {
                 {courseDetail?.name}
               </div>
               <div className="col-span-8 flex space-x-4 items-center pt-2">
-                <div className="font-medium uppercase tracking-wider  dark:text-blueGray-100">
+                <div className="font-medium uppercase tracking-wider dark:text-blueGray-100">
                   {percentProgress?.toFixed(0)}%
                 </div>
                 <div className="flex flex-1 flex-col justify-center">
@@ -85,7 +86,7 @@ export const CourseDetail = () => {
               </div>
             </div>
           </div>
-          <div className="flex-1 text-blueGray-600 dark:text-blueGray-200">
+          <div className="flex-1 text-blueGray-600 dark:text-blueGray-200 text-justify">
             {courseDetail?.description}
           </div>
         </div>
@@ -101,7 +102,8 @@ export const CourseDetail = () => {
                     onClick={() => setActiveIndex(i)}
                     className={` py-4 px-6 relative cursor-pointer hover:bg-blueGray-300 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 ${
                       activeIndex === i &&
-                      "bg-blueGray-300 dark:bg-blueGray-800 text-blueGray-800 dark:text-blueGray-100"
+                      // "bg-blueGray-300 dark:bg-blueGray-800 text-blueGray-800 dark:text-blueGray-100"
+                      "bg-blue-100 dark:bg-blueGray-800 text-blueGray-800 dark:text-blueGray-100"
                     }`}
                   >
                     {v.title}
@@ -117,8 +119,7 @@ export const CourseDetail = () => {
             <div className="col-span-9 text-blueGray-800 dark:text-blueGray-100 font-medium flex flex-col space-y-px bg-white dark:bg-blueGray-800">
               {courseDetail?.modules[activeIndex].submodules.map((v, i) => {
                 const enable = (v.user_progress[0]?.is_done ||
-                  courseDetail.modules[activeIndex].submodules[i - 1]
-                    ?.user_progress[0]?.is_done ||
+                  courseDetail.modules[activeIndex].submodules[i - 1]?.user_progress[0]?.is_done ||
                   (v.user_progress.length === 0 && i === 0)) as boolean;
                 return (
                   <div
@@ -130,7 +131,8 @@ export const CourseDetail = () => {
                     key={v.id}
                     className={`flex items-center p-6 relative  bg-white border-b  dark:border-blueGray-600 dark:bg-blueGray-900  transition ease-in-out duration-200 ${
                       enable
-                        ? "hover:bg-blueGray-300 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 cursor-pointer"
+                        // ? "hover:bg-blueGray-300 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 cursor-pointer"
+                        ? "hover:bg-blue-100 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 cursor-pointer"  
                         : "text-blueGray-400 dark:text-blueGray-500"
                     }`}
                   >
@@ -148,7 +150,8 @@ export const CourseDetail = () => {
                       </div>
                     </div>
                     {v.user_progress[0]?.is_done ? (
-                      <span className="px-4 py-1 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
+                      // <span className="px-4 py-1 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
+                      <span className="px-4 py-1 inline-flex font-semibold rounded-full bg-blue-100 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">    
                         Selesai
                       </span>
                     ) : null}

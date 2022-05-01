@@ -84,7 +84,8 @@ export const ForumDetail = () => {
     <div className="" style={{ minHeight: "80vh" }}>
       <div
         style={{}}
-        className="bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"
+        // className="bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"
+        className="bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900"
       >
         <div className="mx-auto px-32 py-8 lg:py-12">
         <Link
@@ -139,7 +140,8 @@ export const ForumDetail = () => {
                           </div>
                         </div>
                       </div>
-                      <span className="px-3 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
+                      {/* <span className="px-3 inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100"> */}
+                      <span className="px-3 inline-flex font-semibold rounded-full bg-blue-100 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
                         {moment(v.createdAt).format(
                           "HH:mm, DD MMMM YYYY"
                         )}

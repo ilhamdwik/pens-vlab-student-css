@@ -3,7 +3,8 @@ import { ReactComponent as LogoTextWhite } from "../assets/images/logo-text-whit
 
 export const Footer = () => {
   return (
-    <footer className="bg-violet-900 dark:bg-blueGray-900">
+    // <footer className="bg-violet-900 dark:bg-blueGray-900">
+    <footer className="bg-lightBlue-900 dark:bg-blueGray-900">
       <div className="container mx-auto px-6 lg:px-16 flex flex-col lg:flex-row lg:space-x-12 space-y-12 py-8">
         <div className="flex flex-1 space-x-8 items-center">
           <img

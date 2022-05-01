@@ -148,7 +148,7 @@ export const QuizDetail = () => {
                     <h4>Output</h4>
                     <iframe 
                       title="output"
-                      className="p-4 bg-gray-200 dark:bg-white max-w-none overflow-y-scroll scrollbar scrollbar-thin rounded-md" style={{ width: "100%", height: "auto", borderColor: "rgb(0 0 0)" }}
+                      className="p-4 bg-gray-200 dark:bg-trueGray-200 max-w-none overflow-y-scroll scrollbar scrollbar-thin rounded-md" style={{ width: "100%", height: "auto", borderColor: "rgb(0 0 0)" }}
                       srcDoc={quiz.answer}
                     >
                     </iframe>

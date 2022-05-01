@@ -177,13 +177,14 @@ export const Navbar = ({
           >
             <span>Beranda</span>
           </Link>
-          <CourseMenu />
+          {/* <CourseMenu /> */}
           <Link
             to="/quiz"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Kuis</span>
           </Link>
+          <CourseMenu />
           <Link
             to="/playground"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"

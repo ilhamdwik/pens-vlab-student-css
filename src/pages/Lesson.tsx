@@ -14,10 +14,6 @@ import { RootState } from "../redux/store";
 import Markdown from "../components/Markdown";
 import { baseUrl } from "../apis";
 import { toast } from "react-toastify";
-// import { Parse } from "../components/HTMLParser";
-// import HashLoader from "react-spinners/ClipLoader";
-// import { fetchCompile } from "../redux/actions/compileActions";
-// import { request } from "https";
 
 export const Lesson = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -27,35 +23,17 @@ export const Lesson = () => {
   const history = useHistory();
   const [lesson, setLesson] = React.useState<LessonType>();
   const [code, setCode] = React.useState("");
-  // const [compileLoading, setCompileLoading] = React.useState(false);
   const [result, setResult] = React.useState("");
   const [showErrorModal, setShowErrorModal] = React.useState(false);
-  
-  // const [srcDoc, setSrcDoc] = React.useState("");
-
-  // React.useEffect(() => {
-  //   setResult("");
-  // }, [code]);
 
   React.useEffect(() => {
     const timeout = setTimeout(() => {
-      // setResult(`${code}`)
       setResult(`
         <html>
           <body>${code}</body>
         </html>
         `)
-      // setResult(`
-      //   <html>
-      //     <body>${code}</body>
-      //     <style>${code}</style>
-      //     <script>${code}</script>
-      //   </html>
-      //   `)
     }, 1000)
-    // {/* <html>
-    //     <body>${code}</body>
-    //     </html> */}
     return () => clearTimeout(timeout)
   }, [code])
 
@@ -95,26 +73,6 @@ export const Lesson = () => {
       nProgress.done();
     };
   }, [params.id]);
-
-  // const onCompile = () => {
-  //   setCompileLoading(true);
-  //   if (lesson) {
-  //     dispatch(
-  //       fetchCompile.request({
-  //         code,
-  //         progLanguage: lesson?.modules.prog_languages.id,
-  //         onSuccess: (res) => {
-  //           setCompileLoading(false);
-  //           setResult(res);
-  //         },
-  //         onFailure: (err) => {
-  //           setCompileLoading(false);
-  //           setResult(err.message);
-  //         },
-  //       })
-  //     );
-  //   }
-  // };
 
   const onNext = () => {
     nProgress.start();
@@ -160,7 +118,8 @@ export const Lesson = () => {
       />
       <div
         style={{}}
-        className="bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"
+        // className="bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900"
+        className="bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900"
       >
         <div className="container mx-auto px-6 lg:px-16 py-6 flex flex-col space-y-6 justify-center   ">
           <Link
@@ -189,7 +148,7 @@ export const Lesson = () => {
       </div>
       <div className="container mx-auto px-6 lg:px-16 py-12">
         <div className="lg:grid lg:grid-rows-1 lg:grid-cols-11 gap-8">
-          <div className="font-bold py-4 mb-8 lg:mb-0 text-blueGray-400 break-words text-justify col-span-3 border-r dark:border-blueGray-800bg-white dark:bg-blueGray-900 rounded border border-blueGray-300 dark:border-blueGray-900">
+          <div className="font-bold py-4 mb-8 lg:mb-0 text-blueGray-400 break-words text-justify col-span-3 border-r dark:border-blueGray-800 bg-white dark:bg-blueGray-900 rounded border border-blueGray-300 dark:border-blueGray-900">
             {lesson?.modules?.submodules?.map((v, i) => {
               const enable = (v.user_progress[0]?.is_done ||
                 lesson.modules.submodules[i - 1]?.user_progress[0]
@@ -204,10 +163,12 @@ export const Lesson = () => {
                   }}
                   className={`flex items-center py-4 px-6 relative  ${
                     enable
-                      ? "hover:bg-blueGray-300 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 cursor-pointer text-blueGray-800 dark:text-blueGray-100"
+                      // ? "hover:bg-blueGray-300 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 cursor-pointer text-blueGray-800 dark:text-blueGray-100"
+                      ? "hover:bg-blue-100 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 cursor-pointer text-blueGray-800 dark:text-blueGray-100"
                       : "text-blueGray-400 dark:text-blueGray-500"
                   }  transition ease-in-out duration-200 ${
-                    activeIndex === i && "bg-blueGray-300 dark:bg-blueGray-800 "
+                    // activeIndex === i && "bg-blueGray-300 dark:bg-blueGray-800 "
+                    activeIndex === i && "bg-lightBlue-50 dark:bg-blueGray-800 "
                   }`}
                 >
                   <i
@@ -222,7 +183,8 @@ export const Lesson = () => {
                     <div>{v.title}</div>
                   </div>
                   {v.user_progress[0]?.is_done ? (
-                    <div className="px-4 py-1 text-xs inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
+                    // <div className="px-4 py-1 text-xs inline-flex font-semibold rounded-full bg-blueGray-300 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
+                    <div className="px-4 py-1 text-xs inline-flex font-semibold rounded-full bg-blue-100 dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">  
                       Completed
                     </div>
                   ) : null}
@@ -236,7 +198,7 @@ export const Lesson = () => {
             })}
           </div>
           <div className="col-span-8">
-            <article className="  prose dark:prose-light max-w-none">
+            <article className="prose dark:prose-light max-w-none">
               <div className="text-sm font-medium mb-1">
                 {lesson ? (lesson.is_exercise ? "Latihan" : "Teori") : ""}
               </div>
@@ -259,40 +221,17 @@ export const Lesson = () => {
                       theme={dark ? "vs-dark" : "light"}
                     />
                   </div>
-                  {/* {lesson?.is_exercise ? (  */}
                     {result ? ( 
                       <>
                         <h4>Output Kode</h4>
-                        {/* <pre>
-                          <code>
-                            <Parse html={result} />
-                          </code>
-                        </pre> */}
                           <iframe 
                             title="output"
                             className="p-4 bg-gray-200 dark:bg-white max-w-none overflow-y-scroll scrollbar scrollbar-thin rounded-md" style={{ width: "100%", height: "auto", borderColor: "rgb(0 0 0)" }}
                             srcDoc={result}
                           >
                           </iframe>
-                            {/* <Parse html={result} /> */}
-{/* // jawaban is_exercise<!DOCTYPE html>
-<html>
-<head>
-<style>
-#paragraf {
-  color: black;
-}
-</style>
-</head>
-<body>
-
-<p id="paragraf">Halo! Saya kuliah di PENS</p>
-
-</body>
-</html> */}
                       </>
                     ) : null}
-                  {/* // ) : null} */}
                 </div>
               ) : (
                 <Markdown markdown={lesson?.contents ?? ""} />
@@ -311,15 +250,6 @@ export const Lesson = () => {
                 </Link>
               ) : null}
               <div className="flex-1" />
-              {/* {lesson?.is_exercise ? (
-                <button
-                  onClick={onCompile}
-                  className="mr-4 inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-blue-600 bg-white hover:bg-blue-50 focus:outline-none ring-2"
-                >
-                  Jalankan Kode
-                  <i className="fas fa-undo ml-4 mt-1" />
-                </button>
-              ) : null} */}
               {lesson ? (
                 <div
                   onClick={onNext}

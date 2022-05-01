@@ -34,7 +34,8 @@ export const Quiz = () => {
   return (
     <div className="" style={{ minHeight: "80vh" }}>
       <div style={{}}>
-        <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900 ">
+        {/* <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-blueGray-300 to-blueGray-50 dark:from-blueGray-900 dark:to-lightBlue-900 "> */}
+        <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900 ">
           <div className="flex-1 text-center">
             <div className="font-black uppercase text-xs lg:text-base tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
               Kuis
@@ -68,7 +69,8 @@ export const Quiz = () => {
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className=" flex lg:grid lg:grid-cols-12 lg:grid-rows-1 gap-6 items-center w-full p-6 text-sm font-medium text-left text-blue-900 bg-blueGray-100 dark:text-blueGray-100 dark:bg-blueGray-900 rounded hover:bg-blueGray-300 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                    {/* <Disclosure.Button className=" flex lg:grid lg:grid-cols-12 lg:grid-rows-1 gap-6 items-center w-full p-6 text-sm font-medium text-left text-blue-900 bg-blueGray-100 dark:text-blueGray-100 dark:bg-blueGray-900 rounded hover:bg-blueGray-300 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"> */}
+                    <Disclosure.Button className=" flex lg:grid lg:grid-cols-12 lg:grid-rows-1 gap-6 items-center w-full p-6 text-sm font-medium text-left text-blue-900 bg-blue-50 dark:text-blueGray-100 dark:bg-blueGray-900 rounded hover:bg-blue-100 focus:outline-none focus-visible:ring focus-visible:ring-blue-600 focus-visible:ring-opacity-75">
                       <div className="text-base font-bold flex items-center col-span-5">
                         <img
                           src={
@@ -115,7 +117,8 @@ export const Quiz = () => {
                       leaveFrom="transform translate-y-0  opacity-100"
                       leaveTo="transform  -translate-y-12 opacity-0"
                     >
-                      <Disclosure.Panel className="p-6 rounded bg-blueGray-100 dark:bg-blueGray-900 mt-1 dark:text-blueGray-100 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:gap-6">
+                      {/* <Disclosure.Panel className="p-6 rounded bg-blueGray-100 dark:bg-blueGray-900 mt-1 dark:text-blueGray-100 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:gap-6"> */}
+                      <Disclosure.Panel className="p-6 rounded bg-blue-50 dark:bg-blueGray-900 mt-1 dark:text-blueGray-100 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:gap-6">
                         <div className="col-span-5 text-blueGray-600 dark:text-blueGray-200 ">
                           <div className="font-bold mb-1 ">Deskripsi</div>
                           <pre className="font-body break-words whitespace-pre-line ">
