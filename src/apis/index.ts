@@ -20,4 +20,4 @@ export const deleteForumsApi = `${baseUrl}/api/v1/forum/students/delete/`;
 // api comments
 export const getCommentsApi = `${baseUrl}/api/v1/comments/students`;
 export const postCommentsApi = `${baseUrl}/api/v1/comments/students/create`;
-export const deleteCommentsApi = `${baseUrl}/api/v1/comments/students/delete/:id`;
+export const deleteCommentsApi = `${baseUrl}/api/v1/comments/students/delete/`;

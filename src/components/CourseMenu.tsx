@@ -139,7 +139,8 @@ export const CourseMenu = () => {
                         <div
                           className={`w-full p-4 relative text-blue-600 dark:text-blue-400 cursor-pointer hover:bg-blue-100 dark:hover:bg-blueGray-600 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 `}
                         >
-                          Lihat semua Course
+                          {/* Lihat semua Course */}
+                          View all Courses
                           <i className="fas fa-arrow-right text-xs ml-4" />
                         </div>
                       </Popover.Button>
@@ -162,7 +163,7 @@ export const CourseMenu = () => {
                               to={`/courses/${courseDetail?.id}`}
                               className=" inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none "
                             >
-                              Mulai
+                              Start
                             </Popover.Button>
                           </div>
                           <div className="text-blueGray-600 dark:text-blueGray-200 text-justify">
@@ -193,7 +194,7 @@ export const CourseMenu = () => {
                                 to={`/courses/${courseDetail?.id}`}
                                 className="flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
                               >
-                                Lihat semua Modul
+                                View all Modules
                                 <i className="fas fa-arrow-right text-xs ml-4" />
                               </Popover.Button>
                             </div>

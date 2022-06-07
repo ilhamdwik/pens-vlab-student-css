@@ -54,14 +54,17 @@ export const Homepage = () => {
                       Course
                   </div>
                   <div className="text-2xl text-blueGray-900 dark:text-blueGray-100 font-bold mt-4">
-                      Belajar dengan Course
+                    Learn with Course
+                      {/* Belajar dengan Course */}
                   </div>
                   <div className="mt-2 text-base dark:text-blueGray-100">
-                      Mulai belajar dengan menggunakan Course yang tersedia
+                    Start learning by using the available Course
+                      {/* Mulai belajar dengan menggunakan Course yang tersedia */}
                   </div>
                   <Link to="/courses">
                       <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer">
-                          Lihat semua Course
+                          View all Courses
+                          {/* Lihat semua Course */}
                           <i className="fas fa-arrow-right text-xs ml-4"></i>
                       </div>
                   </Link>
@@ -90,7 +93,7 @@ export const Homepage = () => {
                                   </div>
                               </div>
                               <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer self-end">
-                                  Pelajari
+                                Learn
                               </div>
                           </Link>
                       );
@@ -122,16 +125,18 @@ export const Homepage = () => {
                           Playground
                       </div>
                       <div className="text-2xl text-blueGray-900 font-bold mt-4 dark:text-blueGray-100">
-                          Bereksperimen dengan kode
+                        Experiment with code
+                          {/* Bereksperimen dengan kode */}
                       </div>
                       <div className="mt-2 text-base dark:text-blueGray-100">
-                          Mulai bereksperimen dengan kode Playground
+                        Start experimenting with Playground code
+                          {/* Mulai bereksperimen dengan kode Playground */}
                       </div>
                       <Link
                           to="/playground"
                           className="inline-flex items-center px-6 py-3 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none mt-8"
                       >
-                          Buka Playground
+                          Open Playground
                           <i className="fas fa-arrow-right ml-4 mt-1" />
                       </Link>
                   </div>
@@ -142,17 +147,20 @@ export const Homepage = () => {
             <div className="container mx-auto flex flex-col lg:flex-row items-center px-6 lg:px-16 space-y-16 lg:space-y-0 lg:space-x-16 py-16 lg:py-24">   
                 <div className="max-w-xs">
                     <div className="font-black uppercase text-xs tracking-wider text-blue-600 dark:text-blue-400">
-                        Kuis
+                        Quiz
                     </div>
                     <div className="text-2xl text-blueGray-900 font-bold mt-4 dark:text-blueGray-100">
-                        Memperdalam Pemahaman
+                        Deepen Understanding
+                        {/* Memperdalam Pemahaman */}
                     </div>
                     <div className="mt-2 text-base dark:text-blueGray-100">
-                        Mulai mengerjakan Kuis
+                        Start working on Quiz
+                        {/* Mulai mengerjakan Kuis */}
                     </div>
                     <Link to="/quiz">
                       <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer">
-                          Lihat semua Kuis
+                        View all Quiz
+                          {/* Lihat semua Kuis */}
                           <i className="fas fa-arrow-right text-xs ml-4"></i>
                       </div>
                   </Link>
@@ -183,7 +191,7 @@ export const Homepage = () => {
                                     </div>
                                 </div>
                                 <div className="mt-8 flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 transition cursor-pointer self-end">
-                                    Lihat Quiz
+                                    View Quiz
                                 </div>
                             </Link>
                         )

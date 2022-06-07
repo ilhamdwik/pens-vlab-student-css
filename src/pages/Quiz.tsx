@@ -38,10 +38,10 @@ export const Quiz = () => {
         <div className="mx-auto px-32 py-8 lg:py-12 flex justify-center items-center bg-gradient-to-l from-lightBlue-200 to-blue-50 dark:from-blueGray-900 dark:to-lightBlue-900 ">
           <div className="flex-1 text-center">
             <div className="font-black uppercase text-xs lg:text-base tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
-              Kuis
+              Quiz
             </div>
             <div className="text-lg lg:text-3xl text-blueGray-600 dark:text-blueGray-200 font-bold">
-              Kuis yang Ditugaskan
+              Assigned Quiz
             </div>
           </div>
         </div>
@@ -49,15 +49,16 @@ export const Quiz = () => {
       <div className="container mx-auto p-6 lg:p-16">
         {quizList.length === 0 ? (
           <div className="h-20 flex justify-center items-center dark:text-white">
-            Tidak ada Kuis
+            No Quiz
           </div>
         ) : (
           <div className="hidden lg:grid grid-cols-12 grid-rows-1 px-6 mb-1  gap-6">
             <div className="col-span-5 font-black uppercase tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
-              Nama
+              Name
             </div>
             <div className="col-span-6 font-black uppercase tracking-wider text-lightBlue-600 dark:text-blue-400 mb-2">
-              Terakhir Pengumpulan
+              {/* Terakhir Pengumpulan */}
+              Last Collection
             </div>
             <div />
           </div>
@@ -97,7 +98,7 @@ export const Quiz = () => {
                       <div className="flex justify-end items-center space-x-4">
                         {v.is_submitted ? (
                           <div className="px-4 py-1 text-xs inline-flex font-semibold rounded-full bg-white dark:bg-lightBlue-900 text-blue-800 dark:text-blueGray-100">
-                            Selesai
+                            Done
                           </div>
                         ) : null}
 
@@ -120,17 +121,17 @@ export const Quiz = () => {
                       {/* <Disclosure.Panel className="p-6 rounded bg-blueGray-100 dark:bg-blueGray-900 mt-1 dark:text-blueGray-100 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:gap-6"> */}
                       <Disclosure.Panel className="p-6 rounded bg-blue-50 dark:bg-blueGray-900 mt-1 dark:text-blueGray-100 lg:grid lg:grid-cols-12 lg:grid-rows-1 lg:gap-6">
                         <div className="col-span-5 text-blueGray-600 dark:text-blueGray-200 ">
-                          <div className="font-bold mb-1 ">Deskripsi</div>
+                          <div className="font-bold mb-1 ">Description</div>
                           <pre className="font-body break-words whitespace-pre-line ">
                             {v.quizzes?.question}
                           </pre>
                         </div>
                         <div className="col-span-6 mt-6 lg:mt-0 mb-6 lg:mb-0">
-                          <div className="font-bold mb-1">Dosen</div>
+                          <div className="font-bold mb-1">Lecturer</div>
                           <div>{v.quizzes?.lecturers?.name}</div>
                           {v.score ? (
                             <>
-                              <div className="font-bold mb-1 mt-6">Nilai</div>
+                              <div className="font-bold mb-1 mt-6">Score</div>
                               <div>{v.score}</div>
                             </>
                           ) : null}

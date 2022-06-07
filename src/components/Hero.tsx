@@ -4,7 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export const Hero = () => {
     const [index, setIndex] = React.useState(0);
-    const texts = ["Belajar", "Bereksperimen", "Mencoba Hal Baru"];
+    // const texts = ["Belajar", "Bereksperimen", "Mencoba Hal Baru"];
+    const texts = ["Learn", "Experiment", "Trying New Things"];
 
     React.useEffect(() => {
         setTimeout(() => {
@@ -33,7 +34,8 @@ export const Hero = () => {
                         />
                     </div>
                     <div className="text-2xl lg:text-4xl text-white font-bold bg-gradient-to-r from-white to-white bg-clip-text text-transparent">
-                        Platform untuk&nbsp;
+                        {/* Platform untuk&nbsp; */}
+                        Platforms for&nbsp;
                         <AnimatePresence>
                             <motion.span
                                 className=""
@@ -70,14 +72,18 @@ export const Hero = () => {
                         </AnimatePresence>
                     </div>
                     <div className="text-md lg:text-lg text-white mt-4">
-                        {`Temukan pengalaman belajar terbaik dan tingkatkan kemampuanmu pada pemrograman.
+                        {`Find the best learning experience and improve your programming skills. 
+                        Learn the fundamentals of programming languages using the available courses. 
+                        Experiment with code using Playground.`}
+                        {/* {`Temukan pengalaman belajar terbaik dan tingkatkan kemampuanmu pada pemrograman.
                         \nBelajar fundamental dari bahasa pemrograman menggunakan course yang tersedia. 
-                        Bereksperimen dengan kode menggunakan Playground.`}
+                        Bereksperimen dengan kode menggunakan Playground.`} */}
                     </div>
 
                     <Link to="/courses">
                         <button className="inline-flex items-center px-6 py-3 rounded-md shadow-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none mt-8">
-                            Mulai Belajar
+                            {/* Mulai Belajar */}
+                            Start Learning
                             <i className="fas fa-arrow-right ml-4 mt-1" />
                         </button>
                     </Link>

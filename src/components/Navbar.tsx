@@ -30,6 +30,7 @@ export const Navbar = ({
     dispatch(setToken());
     dispatch(setUser());
     localStorage.removeItem("userCas");
+    removeCookie('token');
     document.location.href = "https://ethol.pens.ac.id";
   };
 
@@ -76,7 +77,7 @@ export const Navbar = ({
               }}
               className="w-full "
             >
-              Kembali ke ETHOL
+              Back on ETHOL
             </Button>
             <Button
               onClick={() => {
@@ -96,7 +97,7 @@ export const Navbar = ({
                 setOpenSidebar(false);
               }}
             >
-              Beranda
+              Home
             </Link>
             <Link
               to="/courses"
@@ -114,7 +115,7 @@ export const Navbar = ({
                 setOpenSidebar(false);
               }}
             >
-              Kuis
+              Quiz
             </Link>
             <Link
               to="/playground"
@@ -175,14 +176,14 @@ export const Navbar = ({
             to=""
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
-            <span>Beranda</span>
+            <span>Home</span>
           </Link>
           {/* <CourseMenu /> */}
           <Link
             to="/quiz"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
-            <span>Kuis</span>
+            <span>Quiz</span>
           </Link>
           <CourseMenu />
           <Link
@@ -263,14 +264,14 @@ export const Navbar = ({
                       >
                         <a href="https://ethol.pens.ac.id">
                           <div className="p-4 pr-16 relative cursor-pointer hover:bg-blue-100 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 ">
-                            Kembali ke ETHOL
+                            Back on ETHOL
                           </div>
                         </a>
                         <div
                           onClick={onLogout}
                           className="p-4 pr-16 relative cursor-pointer hover:bg-blue-100 dark:hover:bg-blueGray-800 hover:text-blue-800 dark:hover:text-blue-400 transition ease-in-out duration-200 "
                         >
-                          Keluar
+                          Log Out
                         </div>
                       </div>
                     </>

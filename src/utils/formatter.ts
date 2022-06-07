@@ -3,10 +3,10 @@ export const formatName = (name: string): string => {
   let newName = "";
 
   nameArr.forEach((v, i) => {
-    if (i < 2) {
+    if (i < 1) {
       newName += v + " ";
     } else {
-      newName += v.charAt(0) + "";
+      newName += v.charAt(0) + ". ";
     }
   });
 

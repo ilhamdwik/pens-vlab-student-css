@@ -93,8 +93,6 @@ export const Forum = () => {
       }
     });
   };
-// var words = "ilham";
-// var result = words.substring(0, 3) + "xxxxxxx";
   return (
     <div className="" style={{ minHeight: "80vh" }}>
       <div

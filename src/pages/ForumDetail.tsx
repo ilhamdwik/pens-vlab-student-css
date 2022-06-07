@@ -8,6 +8,7 @@ import {
   getDetailForums,
 } from "../redux/actions/forumActions";
 import {
+  deleteComment,
   getComments, 
   postCreateComment,
 } from "../redux/actions/commentActions";
@@ -18,6 +19,8 @@ import { useParams } from "react-router-dom";
 import { formatName } from "../utils/formatter";
 import { useHistory } from 'react-router';
 import { RootState } from "../redux/store";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 export const ForumDetail = () => {
   const params: { id: string } = useParams();
@@ -80,6 +83,31 @@ export const ForumDetail = () => {
     );
   };
 
+  const onDelete = (id: string) => {
+    Swal.fire({
+      title: "Hapus Data ?",
+      text: "Apakah anda yakin menghapus data ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: `Hapus`,
+    }).then(({ isConfirmed }) => {
+      if (isConfirmed) {
+        dispatch(
+          deleteComment.request({
+            id: id,
+            onSuccess: () => {
+              toast.success("Data berhasil dihapus");
+              history.go(0);
+            },
+            onFailure: (err) => ({}),
+          })
+        );
+      }
+    });
+  };
+
+  console.log(user?.id)
+
   return (
     <div className="" style={{ minHeight: "80vh" }}>
       <div
@@ -128,6 +156,14 @@ export const ForumDetail = () => {
             {commentList?.map((v) => {
               return(
                 <>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (user?.id) {
+                      onDelete(v.id)
+                    }
+                  }}
+                >
                   {forums?.id === v.forum_id ?
                     <div className={`flex items-center p-6 relative border-t-2 dark:border-blue-600 dark:bg-blueGray-900 transition ease-in-out duration-200 }`}>
                       <div className="flex-1 flex items-center">
@@ -146,8 +182,17 @@ export const ForumDetail = () => {
                           "HH:mm, DD MMMM YYYY"
                         )}
                       </span>
+                      {user?.id === v.student_id ? (
+                        <Button
+                          className="ml-2"
+                        >
+                          <i className="fas fa-trash" />
+                          {/* {console.log(v.id)} */}
+                        </Button>
+                      ) : null}
                     </div>
                   : null}
+                </form>
                 </>
               );
             })}
