@@ -10,8 +10,9 @@ import {
 import { Popover, Transition } from "@headlessui/react";
 import HashLoader from "react-spinners/ClipLoader";
 import { RootState } from "../redux/store";
+import { baseUrl } from "../apis";
 
-const cssThumbnail = require("../assets/images/css-logo.png").default;
+// const cssThumbnail = require("../assets/images/css-logo.png").default;
 
 export const CourseMenu = () => {
   const dark = useSelector((state: RootState) => state.app.dark);
@@ -150,7 +151,7 @@ export const CourseMenu = () => {
                         <>
                           <div className="flex items-center space-x-6">
                             <img
-                              src={cssThumbnail}
+                              src={baseUrl + courseDetail.thumbnail_url}
                               alt="logo thumbnail"
                               className="h-12 w-12"
                             />
@@ -189,14 +190,14 @@ export const CourseMenu = () => {
                                     </Popover.Button>
                                   );
                                 })}
-                              <Popover.Button
+                              {/* <Popover.Button
                                 as={Link}
                                 to={`/courses/${courseDetail?.id}`}
                                 className="flex items-center font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800  dark:hover:text-blue-600 transition cursor-pointer"
                               >
                                 View all Modules
                                 <i className="fas fa-arrow-right text-xs ml-4" />
-                              </Popover.Button>
+                              </Popover.Button> */}
                             </div>
                           </div>
                         </>

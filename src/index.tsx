@@ -9,6 +9,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./assets/styles/tailwind.css";
 import "./assets/styles/index.css";
 import "./assets/styles/nprogress.css";
+// import "./assets/styles/navbar.css";
 import "react-toastify/dist/ReactToastify.min.css";
 import { ToastContainer, Slide } from "react-toastify";
 

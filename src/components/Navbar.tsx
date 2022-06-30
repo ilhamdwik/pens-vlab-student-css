@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Popover, Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { Link, NavLink  } from "react-router-dom";
 import React, { Fragment } from "react";
 import { ReactComponent as LogoText } from "../assets/images/logo-text.svg";
 import { formatName } from "../utils/formatter";
@@ -13,6 +13,7 @@ import { useCookies } from "react-cookie";
 import { SwipeableDrawer } from "@material-ui/core";
 import { Button } from "./Button";
 import { setToken, setUser } from "../redux/actions/authActions";
+import "../assets/styles/navbar.css";
 
 export const Navbar = ({
   dark,
@@ -90,7 +91,7 @@ export const Navbar = ({
           </div>
           <div className="my-8" />
           <div className="flex flex-col">
-            <Link
+            {/* <Link
               to=""
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
@@ -98,8 +99,18 @@ export const Navbar = ({
               }}
             >
               Home
-            </Link>
-            <Link
+            </Link> */}
+            <NavLink 
+              to="/home" 
+              activeClassName="active"
+              className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
+              onClick={() => {
+                setOpenSidebar(false);
+              }}
+            >
+              Home
+            </NavLink>
+            {/* <Link
               to="/courses"
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
@@ -107,8 +118,18 @@ export const Navbar = ({
               }}
             >
               Course
-            </Link>
-            <Link
+            </Link> */}
+            <NavLink 
+              to="/courses" 
+              activeClassName="active"
+              className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
+              onClick={() => {
+                setOpenSidebar(false);
+              }}
+            >
+              Course
+            </NavLink>
+            {/* <Link
               to="/quiz"
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
@@ -116,8 +137,18 @@ export const Navbar = ({
               }}
             >
               Quiz
-            </Link>
-            <Link
+            </Link> */}
+            <NavLink 
+              to="/quiz" 
+              activeClassName="active"
+              className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
+              onClick={() => {
+                setOpenSidebar(false);
+              }}
+            >
+              Quiz
+            </NavLink>
+            {/* <Link
               to="/playground"
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
@@ -125,8 +156,18 @@ export const Navbar = ({
               }}
             >
               Playground
-            </Link>
-            <Link
+            </Link> */}
+            <NavLink 
+              to="/playground" 
+              activeClassName="active"
+              className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
+              onClick={() => {
+                setOpenSidebar(false);
+              }}
+            >
+              Playground
+            </NavLink>
+            {/* <Link
               to="/playground_full"
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
@@ -134,8 +175,18 @@ export const Navbar = ({
               }}
             >
               Playground Full
-            </Link>
-            <Link
+            </Link> */}
+            <NavLink 
+              to="/playground_full" 
+              activeClassName="active"
+              className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
+              onClick={() => {
+                setOpenSidebar(false);
+              }}
+            >
+              Playground Full
+            </NavLink>
+            {/* <Link
               to="/forum"
               className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
               onClick={() => {
@@ -143,7 +194,17 @@ export const Navbar = ({
               }}
             >
               Forum
-            </Link>
+            </Link> */}
+            <NavLink 
+              to="/forum" 
+              activeClassName="active"
+              className="px-0 py-4 font-bold text-blue-600 border-b border-blueGray-200"
+              onClick={() => {
+                setOpenSidebar(false);
+              }}
+            >
+              Forum
+            </NavLink>
           </div>
         </div>
       </SwipeableDrawer>
@@ -172,38 +233,73 @@ export const Navbar = ({
         </div>
         <div className="hidden lg:flex flex-1 space-x-10 mx-10">
           <div className="flex-1" />
-          <Link
+          {/* <Link
             to=""
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Home</span>
-          </Link>
-          {/* <CourseMenu /> */}
-          <Link
-            to="/quiz"
+          </Link> */}
+          <NavLink 
+            to="/home" 
+            activeClassName="active"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
+            Home
+          </NavLink>
+          {/* <CourseMenu /> */}
+          {/* <Link
+            to="/quiz"
+            className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium navbar__link--active"
+          >
             <span>Quiz</span>
-          </Link>
+          </Link> */}
+          <NavLink 
+            to="/quiz" 
+            activeClassName="active"
+            className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
+          >
+            Quiz
+          </NavLink>
           <CourseMenu />
-          <Link
+          {/* <Link
             to="/playground"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Playground</span>
-          </Link>
-          <Link
+          </Link> */}
+          <NavLink 
+            to="/playground" 
+            activeClassName="active"
+            className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
+          >
+            Playground
+          </NavLink>
+          {/* <Link
             to="/playground_full"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Playground Full</span>
-          </Link>
-          <Link
+          </Link> */}
+          <NavLink 
+            to="/playground_full" 
+            activeClassName="active"
+            className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
+          >
+            Playground Full
+          </NavLink>
+          {/* <Link
             to="/forum"
             className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
           >
             <span>Forum</span>
-          </Link>
+          </Link> */}
+          <NavLink 
+            to="/forum" 
+            activeClassName="active"
+            className="flex items-center space-x-2 text-blueGray-800 dark:text-blueGray-100 hover:text-blue-600 transition focus:outline-none font-medium"
+          >
+            Forum
+          </NavLink>
           <Popover className="relative">
             {({ open }) => (
               <>
