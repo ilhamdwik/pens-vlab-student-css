@@ -168,7 +168,7 @@ export const Courses = () => {
                         </Link>
                       </div>
                     </Disclosure.Panel>
-                    <div className="mt-2"></div>
+                    <div className="mt-6"></div>
                   </Transition>
                 </>
               )}
