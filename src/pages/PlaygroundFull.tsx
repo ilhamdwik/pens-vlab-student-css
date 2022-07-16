@@ -5,7 +5,8 @@ import Editor from "@monaco-editor/react";
 
 export const PlaygroundFull = () => {
   const { dark } = useSelector((state: RootState) => state.app);
-  const [html, setHtml] = React.useState(`<html>
+  const [html, setHtml] = React.useState(`<!-- html -->
+<html>
   <head>
   <title>Hello</title>
   </head>
@@ -16,14 +17,16 @@ export const PlaygroundFull = () => {
       <h2 id="result"></h2>
   </body>
 </html>`)
-  const [css, setCss] = React.useState(`h1 {
+  const [css, setCss] = React.useState(`/* css */
+h1 {
   color: lightblue;
 }
 
 #result{
   color: green;
 }`)
-  const [js, setJs] = React.useState(`var x = 5;
+  const [js, setJs] = React.useState(`// javascript
+var x = 5;
 var y = 4;
 var z = x + y;
 document.getElementById("result").innerHTML = z;`)

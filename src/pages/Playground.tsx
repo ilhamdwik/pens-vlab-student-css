@@ -45,12 +45,8 @@ export const Playground = () => {
     return () => clearTimeout(timeout)
   }, [code])
 
-  // console.log(srcDoc)
-
   return (
     <>
-    {/* {srcDoc!=null ? "" : "" srcDoc!=null ? "" : ""} */}
-    {srcDoc!=null ? 
       <div
         className="flex-col overflow-hidden hidden lg:flex"
         style={{ height: "calc(100vh - 64px)" }}
@@ -104,7 +100,6 @@ export const Playground = () => {
           </iframe>
         </div>
       </div>
-    : 
       <div className="flex flex-col overflow-hidden lg:hidden">
           <div className="container mx-auto flex flex-col px-6 lg:px-16 py-6 justify-between">
             <div className="flex space-x-6"></div>
@@ -158,7 +153,6 @@ export const Playground = () => {
           </div>
         </div>
       </div>
-      }
     </>
   );
 };

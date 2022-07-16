@@ -148,7 +148,7 @@ export const Lesson = () => {
       </div>
       <div className="container mx-auto px-6 lg:px-16 py-12">
         <div className="lg:grid lg:grid-rows-1 lg:grid-cols-11 gap-8">
-          <div className="font-bold py-4 mb-8 lg:mb-0 text-blueGray-400 break-words text-justify col-span-3 border-r dark:border-blueGray-800 bg-white dark:bg-blueGray-900 rounded border border-blueGray-300 dark:border-blueGray-900">
+          <div className="font-bold py-4 mb-8 lg:mb-0 text-blueGray-400 break-words text-justify col-span-3 border-r bg-white dark:bg-blueGray-900 rounded border border-blueGray-300 dark:border-blueGray-900">
             {lesson?.modules?.submodules?.map((v, i) => {
               const enable = (v.user_progress[0]?.is_done ||
                 lesson.modules.submodules[i - 1]?.user_progress[0]
