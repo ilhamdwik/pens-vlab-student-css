@@ -16,5 +16,5 @@
 yarn install
 yarn add global serve
 yarn build
-yarn serve -s build -l 3003
+yarn serve -s build -l 3002
 ```
