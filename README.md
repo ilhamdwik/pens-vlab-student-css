@@ -14,7 +14,7 @@
 
 ```sh
 yarn install
+yarn add global serve
 yarn build
-npm install -g serve
-serve -s build -l 3003
+yarn serve -s build -l 3003
 ```
