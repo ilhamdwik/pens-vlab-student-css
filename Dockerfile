@@ -1,3 +1,4 @@
+# ----lama----
 # FROM node:14-alpine
 
 # WORKDIR /usr/src/app
@@ -17,20 +18,18 @@
 
 # CMD serve -s build -l 3002
 
-FROM node:14-alpine
+
+FROM node:16.16-alpine
 
 WORKDIR /usr/src/app
 
-ENV PATH /app/node_modules/.bin:$PATH
+COPY ../pens-vlab-student-css ./
 
-COPY package*.json ./
+RUN yarn install
+RUN yarn global add serve
 
-RUN npm install -g serve
+EXPOSE 3004
 
-COPY . .
+RUN yarn build
 
-EXPOSE 3002
-
-RUN npm run build
-
-CMD serve -s build -l 3002
+CMD yarn serve -s build -l 3004
